@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\LevelEnum;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,10 +16,11 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->foreignId('pegawai_id')->nullable();
+            $table->foreignId('anggota_id')->nullable();
+            $table->string('username');
             $table->string('password');
+            $table->string('level')->default(LevelEnum::Anggota->value);
             $table->rememberToken();
             $table->timestamps();
         });
