@@ -16,12 +16,12 @@ class AkunRequest extends FormRequest
         return true;
     }
 
-    // public function prepareForValidation()
-    // {
-    //     $this->merge([
-    //         'saldo' => floatval(str_replace(',', '.', str_replace('.', '', preg_replace('(Rp)', '', $this->saldo))))
-    //     ]);
-    // }
+    public function prepareForValidation()
+    {
+        $this->merge([
+            'saldo' => floatval(str_replace(',', '.', str_replace('.', '', preg_replace('(Rp)', '', $this->saldo))))
+        ]);
+    }
 
     /**
      * Get the validation rules that apply to the request.

@@ -4,6 +4,15 @@
 
 @push('style')
 <!-- CSS Libraries -->
+{{-- <link rel="stylesheet"
+        href="assets/modules/datatables/datatables.min.css">
+    <link rel="stylesheet"
+        href="assets/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet"
+        href="assets/modules/datatables/Select-1.2.4/css/select.bootstrap4.min.css"> --}}
+
+<link rel="stylesheet" href="{{ asset('library/datatables/media/css/jquery.dataTables.min.css') }}">
+
 <link rel="stylesheet" href="{{ asset('library/select2/dist/css/select2.min.css') }}">
 @endpush
 
@@ -72,13 +81,6 @@
                                             <p class="text-danger small">{{ $message }}</p>
                                             @enderror
                                         </div>
-                                        <!-- <div class="form-group">
-                                            <label for="" class="form-label">Kode</label>
-                                            <input type="text" class="form-control" id="inputKode" @error('kode_akun') is-invalid @enderror">
-                                            @error('kode_akun')
-                                            <p class="text-danger small">{{ $message }}</p>
-                                            @enderror
-                                        </div> -->
                                         <div class="form-group">
                                             <label for="" class="form-label">Kode Akun</label>
                                             <input name="kode_akun" type="text" id="kodeAkun" value="{{ old('kode_akun')}}" class="form-control @error('kode_akun') is-invalid @enderror">
@@ -144,6 +146,13 @@
 @endsection
 
 @push('scripts')
+<!-- JS Libraies -->
+<script src="{{ asset('library/datatables/media/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('library/jquery-ui-dist/jquery-ui.min.js') }}"></script>
+
+<!-- Page Specific JS File -->
+<script src="{{ asset('js/page/modules-datatables.js') }}"></script>
+
 <!-- JS Libraies -->
 <script src="{{ asset('library/select2/dist/js/select2.full.min.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/autonumeric@4.1.0"></script>

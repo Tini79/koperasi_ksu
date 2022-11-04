@@ -31,9 +31,7 @@
                 <a href="" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-file-invoice"></i><span>Pembukuan</span></a>
                 <ul class="dropdown-menu">
                     <li><a href="{{ route('pembukuan.akun.create') }}" class="nav-link">Chart Of Account</a></li>
-                    <li><a href="{{ route('pembukuan.datamemorial.index') }}" class="nav-link">Memorial</a></li>
-                    <li><a href="{{ route('pembukuan.databukukas.index') }}" class="nav-link">Buku Kas</a></li>
-                    <li><a href="{{ route('pembukuan.databukubesar.index') }}" class="nav-link">Buku Besar</a></li>
+                    <li><a href="{{ route('pembukuan.datamemorial.index') }}" class="nav-link">Kas</a></li>
                 </ul>
             </li>
             <li class="menu-header">Laporan-Laporan</li>

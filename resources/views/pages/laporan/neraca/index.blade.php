@@ -70,9 +70,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @if($search)
 
-                                        @endif
                                     </tbody>
                                 </table>
                             </div>

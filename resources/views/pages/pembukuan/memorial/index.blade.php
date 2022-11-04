@@ -18,9 +18,9 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Memorial</h1>
+            <h1>Jurnal</h1>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item">Memorial</div>
+                <div class="breadcrumb-item">Jurnal</div>
             </div>
         </div>
 
@@ -29,7 +29,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header justify-content-between">
-                            <h4>Data Memorial</h4>
+                            <h4>Data Jurnal</h4>
                             <div class="">
                                 <a href="{{ route('pembukuan.datamemorial.create') }}" class="btn btn-outline-primary"><i class="fas fa-plus"></i> Tambah</a>
                             </div>

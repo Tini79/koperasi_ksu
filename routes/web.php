@@ -86,10 +86,6 @@ Route::resource('/dataproduksimpanan', ProdukSimpananController::class, [
 ]);
 Route::name('pembukuan.')->group(function () {
     Route::resource('/akun', AkunController::class);
-    Route::get('/databukukas', [BukuKasController::class, 'index'])->name('databukukas.index');
-    Route::get('/databukukas/pdf', [BukuKasController::class, 'printPdf'])->name('databukukas.pdf');
-    Route::get('/databukubesar', [BukuBesarController::class, 'index'])->name('databukubesar.index');
-    Route::get('/databukubesar/pdf', [BukuBesarController::class, 'printPdf'])->name('databukubesar.pdf');
     Route::resource('/datamemorial', MemorialController::class)->except('show');
     Route::post('datamemorial/printpdf', [MemorialController::class, 'printPdf'])->name('datamemorial.printpdf');
 });

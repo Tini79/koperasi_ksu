@@ -21,9 +21,13 @@
 <div class="main-content">
     <section class="section">
         <div class="section-header">
-            <h1>Memorial</h1>
+            <div class="section-header-back">
+                <a href="{{ route('pembukuan.datamemorial.index') }}" class="btn btn-icon"><i class="fa fa-arrow-left"></i></a>
+            </div>
+            <h1>Tambah Jurnal</h1>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item">Memorial</div>
+                <div class="breadcrumb-item active"><a href="{{ route('pembukuan.datamemorial.index') }}">Jurnal</a></div>
+                <div class="breadcrumb-item">Tambah Jurnal</div>
             </div>
         </div>
 
@@ -35,7 +39,7 @@
                             <form action="{{ route('pembukuan.datamemorial.store') }}" method="post">
                                 @csrf
                                 <fieldset>
-                                    <legend>Memorial</legend>
+                                    <legend>Tambah Jurnal</legend>
                                     <div class="form-group">
                                         <label for="" class="form-label">Tanggal</label>
                                         <input name="tanggal" type="text" class="form-control datepicker">
@@ -49,7 +53,7 @@
                                     </div>
                                 </fieldset>
                                 <div class="card-header justify-content-between">
-                                    <h4>Pencatatan Memorial</h4>
+                                    <h4>Pencatatan Jurnal</h4>
                                     <button type="button" class="btn btn-outline-primary float-right" onclick="addData()"><i class="fas fa-plus"></i> Tambah </button>
                                 </div>
                                 <div class="table-responsive">
