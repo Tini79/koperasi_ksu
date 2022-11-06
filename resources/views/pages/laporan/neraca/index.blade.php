@@ -4,16 +4,6 @@
 
 @push('style')
 <!-- CSS Libraries -->
-{{-- <link rel="stylesheet"
-        href="assets/modules/datatables/datatables.min.css">
-    <link rel="stylesheet"
-        href="assets/modules/datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet"
-        href="assets/modules/datatables/Select-1.2.4/css/select.bootstrap4.min.css"> --}}
-
-<link rel="stylesheet" href="{{ asset('library/datatables/media/css/jquery.dataTables.min.css') }}">
-
-<link rel="stylesheet" href="{{ asset('library/select2/dist/css/select2.min.css') }}">
 <link rel="stylesheet" href="{{ asset('library/bootstrap-daterangepicker/daterangepicker.css') }}">
 @endpush
 
@@ -36,11 +26,12 @@
                                 <fieldset>
                                     <legend>Neraca</legend>
                                     <div class="form-group">
-                                        <label for="" class="form-label">Tanggal</label>
-                                        <input name="tanggal" type="text" class="form-control @error('tanggal') is-invalid @enderror datepicker">
-                                        @error('tanggal')
-                                        <p class="text-danger small">{{ $message }}</p>
-                                        @enderror
+                                        <label for="" class="form-label">Tanggal Awal</label>
+                                        <input name="tanggal_awal" type="text" value="{{Request::get('tanggal_awal') ? : date('Y-m-d')}}" class="form-control @error('tanggal') is-invalid @enderror datepicker">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="form-label">Tanggal Akhir</label>
+                                        <input name="tanggal_akhir" type="text" value="{{Request::get('tanggal_akhir') ? : date('Y-m-d')}}" class="form-control @error('tanggal') is-invalid @enderror datepicker">
                                     </div>
                                     <button class="btn btn-primary">Cari</button>
                                     <a href="{{ route('laporan.neraca.pdf') }}" target="blank" class="btn btn-info">Print</a>
@@ -63,15 +54,30 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table-striped table" id="table-1">
+                                <table class="table" border="1">
                                     <thead>
                                         <tr>
-
+                                            <th>Uraian</th>
+                                            <th>Debit</th>
+                                            <th>Kredit</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-
+                                        @include('pages.laporan.neraca.child' , ['akun'=> $akunAset])
+                                        @include('pages.laporan.neraca.child' , ['akun'=> $akunKewajiban])
+                                        @include('pages.laporan.neraca.child' , ['akun'=> $akunPendapatan])
+                                        @include('pages.laporan.neraca.child' , ['akun'=> $akunBebanOperasional])
+                                        @include('pages.laporan.neraca.child' , ['akun'=> $akunArusKas])
+                                        @include('pages.laporan.neraca.child' , ['akun'=> $akunSaldoModalAwal])
+                                        @include('pages.laporan.neraca.child' , ['akun'=> $akunTransaksi])
                                     </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th class="text-right">Jumlah</th>
+                                            <td>@currency($akunAset->saldo + $akunKewajiban->saldo + $akunPendapatan->saldo + $akunBebanOperasional->saldo + $akunArusKas->saldo + $akunSaldoModalAwal->saldo + $akunTransaksi->saldo)</td>
+                                            <td>@currency($akunAset->saldo + $akunKewajiban->saldo + $akunPendapatan->saldo + $akunBebanOperasional->saldo + $akunArusKas->saldo + $akunSaldoModalAwal->saldo + $akunTransaksi->saldo)</td>
+                                        </tr>
+                                    </tfoot>
                                 </table>
                             </div>
                         </div>
@@ -85,12 +91,6 @@
 @endsection
 
 @push('scripts')
-<!-- JS Libraies -->
-<script src="{{ asset('library/datatables/media/js/jquery.dataTables.min.js') }}"></script>
-
-<!-- Page Specific JS File -->
-<script src="{{ asset('js/page/modules-datatables.js') }}"></script>
-
 <script src="{{ asset('library/select2/dist/js/select2.full.min.js') }}"></script>
 <script src="{{ asset('library/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
 @endpush

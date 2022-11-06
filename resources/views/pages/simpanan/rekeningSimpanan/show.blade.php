@@ -87,7 +87,7 @@
                                     <tbody>
                                         @foreach($rekeningSimpanan->simpanan_anggotas as $key => $simpananAnggota)
                                         <tr>
-                                            <td>{{ $key + 1 }}</td>
+                                            <td class="text-center">{{ $key + 1 }}</td>
                                             <!-- <td></td> -->
                                             <td>{{ $simpananAnggota->tgl_transaksi }}</td>
                                             <td>{{ $simpananAnggota->produk_simpanan->produk }}</td>

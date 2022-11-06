@@ -13,13 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('detail_memorials', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('akun_id');
-            $table->unsignedBigInteger('memorial_id');
-            $table->double('debet')->nullable();
-            $table->double('kredit')->nullable();
-            $table->timestamps();
+        Schema::table('pinjamans', function (Blueprint $table) {
+            $table->boolean('status')->default(0);
         });
     }
 
@@ -30,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detail_memorials');
+        Schema::table('pinjamans', function (Blueprint $table) {
+            //
+        });
     }
 };

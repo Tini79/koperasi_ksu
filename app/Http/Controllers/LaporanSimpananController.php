@@ -21,8 +21,8 @@ class LaporanSimpananController extends Controller
 
     public function printPdf()
     {
-        $date = Carbon::now();
-        $today = $date->toDateString();
+        $date = Carbon::now()->translatedFormat('d F Y');
+        $today = Carbon::now()->toDateString();
         $laporanSimpanan = SimpananAnggota::with('anggota', 'rekening_simpanan', 'produk_simpanan')
             ->where('tgl_transaksi', '=', $today)
             ->get();

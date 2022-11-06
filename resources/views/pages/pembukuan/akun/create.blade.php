@@ -91,7 +91,6 @@
                                     </div>
                                 </fieldset>
                                 <button class="btn btn-primary">Tambah</button>
-                                <a href="/dataanggota" class="btn btn-outline-info">Kembali</a>
                             </form>
                         </div>
                     </div>
@@ -125,7 +124,7 @@
                                     <tbody>
 
                                         @foreach($akuns as $key => $akun) <tr>
-                                            <td>{{ $key + 1 }}</td>
+                                            <td class="text-center">{{ $key + 1 }}</td>
                                             <td>{{ $akun->nama_akun }}</td>
                                             <td>{{ $akun->kode_akun }}</td>
                                             <td>{{ $akun->kategori }}</td>

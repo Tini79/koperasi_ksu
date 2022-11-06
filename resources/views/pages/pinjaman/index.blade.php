@@ -53,7 +53,7 @@
                                     <tbody>
                                         @foreach($pinjamans as $key => $pinjaman)
                                         <tr>
-                                            <td>{{ $key + 1 }}</td>
+                                            <td class="text-center">{{ $key + 1 }}</td>
                                             <td>
                                                 <a href="{{ route('show.pinjaman', ['datapinjaman' => $pinjaman->id]) }}" class="text-decoration-none font-weight-bold">{{ $pinjaman->no_pinjaman }}</a>
                                             </td>

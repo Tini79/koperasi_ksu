@@ -46,7 +46,7 @@
                                     <tbody>
                                         @foreach($users as $key => $user)
                                         <tr>
-                                            <td>{{ $key + 1 }}</td>
+                                            <td class="text-center">{{ $key + 1 }}</td>
                                             <td>
                                                 @if($user->anggota_id == null)
                                                 {{ $user->pegawai->nama_pegawai }}

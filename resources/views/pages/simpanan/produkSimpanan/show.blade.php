@@ -48,11 +48,6 @@
                                 <p>:</p>
                                 <p class="col" id="alamat">{{ $produksimpanan->produk }}</p>
                             </div>
-                            <div class="row">
-                                <p class="col-4">Bunga</p>
-                                <p>:</p>
-                                <p class="col" id="alamat">{{ $produksimpanan->bunga }}</p>
-                            </div>
                         </div>
                     </div>
                 </div>

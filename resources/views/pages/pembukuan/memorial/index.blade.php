@@ -31,7 +31,7 @@
                         <div class="card-header justify-content-between">
                             <h4>Data Jurnal</h4>
                             <div class="">
-                                <a href="{{ route('pembukuan.datamemorial.create') }}" class="btn btn-outline-primary"><i class="fas fa-plus"></i> Tambah</a>
+                                <a href="{{ route('pembukuan.datajurnalkas.create') }}" class="btn btn-outline-primary"><i class="fas fa-plus"></i> Tambah</a>
                             </div>
                         </div>
                         <div class="card-body">
@@ -51,7 +51,7 @@
                                         @foreach($memorials as $key => $memorial)
                                         @foreach($memorial->detail_memorials as $detail_memorial)
                                         <tr>
-                                            <td>{{ $key + 1 }}</td>
+                                            <td class="text-center">{{ $key + 1 }}</td>
                                             <td>{{ $memorial->tanggal }}</td>
                                             <td>{{ $detail_memorial->akun->nama_akun }}</td>
                                             <td>@currency($detail_memorial->debet)</td>

@@ -27,7 +27,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header justify-content-between">
-                            <h4>{{ $pinjaman->anggota->nama_anggota}}</h4>
+                            <h4>{{ $pinjaman->anggota->nama_anggota }}</h4>
                             <div class="d-flex">
                                 <!-- anggota -->
                                 <form action="{{ route('destroy.pinjaman', ['datapinjaman' => $pinjaman->id]) }}" method="post">
@@ -38,40 +38,60 @@
                             </div>
                         </div>
                         <div class="card-body">
+                            @if($pinjaman->status == 1)
+                            <h6>Disetujui</h6>
+                            @else
+                            <h6>Tidak Disetujui</h6>
+                            @endif
                             <div class="row">
                                 <p class="col-4">Nomor Pinjaman</p>
                                 <p>:</p>
-                                <p class="col" id="nama">{{ $pinjaman->no_pinjaman }}</p>
+                                <p class="col">{{ $pinjaman->no_pinjaman }}</p>
                             </div>
                             <div class="row">
                                 <p class="col-4">Nama Anggota</p>
                                 <p>:</p>
-                                <p class="col" id="alamat">{{ $pinjaman->anggota->nama_anggota }}</p>
+                                <p class="col">{{ $pinjaman->anggota->nama_anggota }}</p>
                             </div>
-                            <!-- <div class="row">
-                                <p class="col-4">Jumlah Pinjaman</p>
-                                <p>:</p>
-                                <p class="col" id="alamat">@currency($pinjaman->jumlah_pinjaman)</p>
-                            </div> -->
                             <div class="row">
                                 <p class="col-4">Jumlah Pinjaman Cair</p>
                                 <p>:</p>
-                                <p class="col" id="alamat">@currency($pinjaman->pinjamanCair())</p>
+                                <p class="col">@currency($pinjaman->pinjamanCair())</p>
                             </div>
                             <div class="row">
                                 <p class="col-4">Tanggal Pinjaman</p>
                                 <p>:</p>
-                                <p class="col" id="alamat">{{ $pinjaman->tgl_pinjaman }}</p>
+                                <p class="col">{{ $pinjaman->tgl_pinjaman }}</p>
                             </div>
                             <div class="row">
                                 <p class="col-4">Jangka Waktu Pinjaman (hari)</p>
                                 <p>:</p>
-                                <p class="col" id="alamat">{{ $pinjaman->jangka_waktu_pinjaman }} hari</p>
+                                <p class="col">{{ $pinjaman->jangka_waktu_pinjaman }} hari</p>
                             </div>
                             <div class="row">
                                 <p class="col-4">Agunan</p>
                                 <p>:</p>
-                                <p class="col" id="alamat">{{ $pinjaman->agunan }}</p>
+                                <p class="col">{{ $pinjaman->agunan }}</p>
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <div class="row">
+                                    <div class="mr-2">
+                                        <form action="{{ route('update.pinjaman', ['datapinjaman' => $pinjaman->id]) }}" method="post">
+                                            @csrf
+                                            @method('PATCH')
+                                            <input type="hidden" name="status" value="1">
+                                            <button class="btn btn-info">Setuju</button>
+                                        </form>
+                                    </div>
+                                    <div>
+                                        <form action="{{ route('update.pinjaman', ['datapinjaman' => $pinjaman->id]) }}" method="post">
+                                            @csrf
+                                            @method('PATCH')
+                                            <input type="hidden" name="status" value="0">
+                                            <button class="btn btn-outline-danger">Tidak Setuju</button>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -111,7 +131,7 @@
                                     <tbody>
                                         @foreach($pinjaman->angsuran_pinjamans as $key => $angsuranPinjaman)
                                         <tr>
-                                            <td>{{ $key + 1 }}</td>
+                                            <td class="text-center">{{ $key + 1 }}</td>
                                             <td>{{ $angsuranPinjaman->tanggal_pembayaran }}</td>
                                             <td>@currency($angsuranPinjaman->nominal_setoran)</td>
                                             <td>@currency($angsuranPinjaman->sisa_angsuran)</td>

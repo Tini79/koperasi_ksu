@@ -47,7 +47,7 @@
                                     <tbody>
                                         @foreach($rekeningSimpanans as $key => $rekeningSimpanan)
                                         <tr>
-                                            <td>{{ $key + 1}}</td>
+                                            <td class="text-center">{{ $key + 1}}</td>
                                             <td>
                                                 <a href="{{ route('show.rekeningSimpanan', ['datarekeningsimpanan' => $rekeningSimpanan->id]) }}" class="text-decoration-none font-weight-bold">{{ $rekeningSimpanan->no_rekening }}</a>
                                             </td>

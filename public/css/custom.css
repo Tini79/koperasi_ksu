@@ -14,3 +14,7 @@
     left: 0px;
     will-change: transform;
 }
+
+.override-line-height {
+    line-height: 12px !important;
+}

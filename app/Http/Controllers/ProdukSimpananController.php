@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProdukSimpanan\StoreProdukSimpananRequest;
-use App\Http\Requests\ProdukSimpanan\UpdateProdukSimpananRequest;
 use App\Models\ProdukSimpanan;
 use Exception;
 use Illuminate\Http\Request;
@@ -22,7 +21,12 @@ class ProdukSimpananController extends Controller
 
     public function create()
     {
-        return view('/pages.simpanan.produksimpanan.create');
+        $countProdukSimpanan = ProdukSimpanan::count('id');
+        $produkSimpananNumber = ProdukSimpanan::getNumber($countProdukSimpanan, 5, '00000');
+
+        return view('/pages.simpanan.produksimpanan.create', [
+            'produkSimpananNumber' => $produkSimpananNumber
+        ]);
     }
 
     public function store(StoreProdukSimpananRequest $request)
@@ -32,7 +36,6 @@ class ProdukSimpananController extends Controller
             $validatedData = $request->safe()->only([
                 'no_produk',
                 'produk',
-                'bunga'
             ]);
 
             ProdukSimpanan::create($validatedData);
@@ -56,19 +59,22 @@ class ProdukSimpananController extends Controller
 
     public function edit(ProdukSimpanan $dataproduksimpanan)
     {
+        $countProdukSimpanan = ProdukSimpanan::count('id');
+        $produkSimpananNumber = ProdukSimpanan::getNumber($countProdukSimpanan, 5, '00000');
+
         return view('/pages.simpanan.produksimpanan.edit', [
-            'produksimpanan' => $dataproduksimpanan
+            'produksimpanan' => $dataproduksimpanan,
+            'produkSimpananNumber' => $produkSimpananNumber
         ]);
     }
 
-    public function update(UpdateProdukSimpananRequest $request, ProdukSimpanan $dataproduksimpanan)
+    public function update(StoreProdukSimpananRequest $request, ProdukSimpanan $dataproduksimpanan)
     {
         DB::beginTransaction();
         try {
             $dataproduksimpanan->fill($request->safe([
                 'no_produk',
                 'produk',
-                'bunga'
             ]));
 
             $dataproduksimpanan->save();

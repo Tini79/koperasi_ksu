@@ -36,6 +36,7 @@ class MemorialRequest extends FormRequest
     {
         return [
             'dataMemorial.*.akun_id' => 'required',
+            'no_jurnal' => 'required',
             'keterangan' => 'required',
             'tanggal' => 'required',
             'dataMemorial.*.debet' => 'nullable',

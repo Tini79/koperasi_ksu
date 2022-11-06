@@ -127,8 +127,21 @@ class PinjamanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
+        $pinjamanAnggota = Pinjaman::find($id);
+
+        try {
+            $statusPinjaman = $request->validate(
+                ['status' => 'required']
+            );
+
+            $pinjamanAnggota->update($statusPinjaman);
+
+            return redirect()->back()->with('succes', 'Berhasil update status pinjaman!');
+        } catch (Exception $th) {
+            return redirect()->back()->with('danger', 'Gagal update status pinjaman!');
+        }
     }
 
     /**

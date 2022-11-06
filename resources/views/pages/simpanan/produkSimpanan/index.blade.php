@@ -39,21 +39,19 @@
                                 <table class="table-striped table" id="table-1">
                                     <thead>
                                         <tr>
-                                            <th class="text-center">#</th>
-                                            <th>Nomor Produk</th>
-                                            <th>Produk</th>
-                                            <th>Bunga</th>
+                                            <th class="text-center col-1">#</th>
+                                            <th class="col-3">Nomor Produk</th>
+                                            <th class="col">Produk</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach($produkSimpanans as $key => $produkSimpanan)
                                         <tr>
-                                            <td>{{ $key + 1 }}</td>
+                                            <td class="text-center">{{ $key + 1 }}</td>
                                             <td>
-                                                <a href="{{ route('show.produksimpanan', ['dataproduksimpanan' => $produkSimpanan->id]) }}" class="text-decoration-none font-weight-bold">{{ $produkSimpanan->no_produk }}</a>
+                                                <a href=" {{ route('show.produksimpanan', ['dataproduksimpanan' => $produkSimpanan->id]) }}" class="text-decoration-none font-weight-bold">{{ $produkSimpanan->no_produk }}</a>
                                             </td>
                                             <td>{{ $produkSimpanan->produk }}</td>
-                                            <td>{{ $produkSimpanan->bunga }}</td>
                                         </tr>
                                         @endforeach
                                     </tbody>

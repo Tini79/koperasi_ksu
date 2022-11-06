@@ -15,13 +15,13 @@
                 <div class="mb-5">
                     <h4>Laporan Simpanan</h4>
                     <h5>KSU Hita Mandiri Sejahtera</h5>
-                    <h6>Tanggal {{ date_format($date, "d/m/Y") }}</h6>
+                    <h6>Tanggal {{ $date }}</h6>
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-striped table-hover mx-auto w-100" border="1">
+                    <table class="table" border="1">
                         <thead>
                             <tr>
-                                <th class="p-1 text-center">#</th>
+                                <th class="p-1 text-center">No.</th>
                                 <th class="p-1 text-center col-6">Tanggal</th>
                                 <th class="p-1 text-center col-6">Nama</th>
                                 <th class="p-1 text-center col-6">Rekening Simpanan</th>

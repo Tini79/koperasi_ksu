@@ -36,9 +36,9 @@ class Anggota extends Model
         return $this->hasMany(SimpananAnggota::class);
     }
 
-    public function pinjaman()
+    public function pinjamans()
     {
-        return $this->hasOne(Pinjaman::class);
+        return $this->hasMany(Pinjaman::class);
     }
 
     public function user()

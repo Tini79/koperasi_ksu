@@ -52,7 +52,7 @@
                                     <tbody>
                                         @foreach($pegawais as $key => $pegawai)
                                         <tr>
-                                            <td>{{ $key + 1 }}</td>
+                                            <td class="text-center">{{ $key + 1 }}</td>
                                             <td>
                                                 <a href="{{ route('show', ['datapegawai' => $pegawai->id]) }}" class="text-decoration-none font-weight-bold">{{ $pegawai->no_pegawai }}</a>
                                             </td>

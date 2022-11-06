@@ -25,8 +25,7 @@ class StoreProdukSimpananRequest extends FormRequest
     {
         return [
             'no_produk' => 'required',
-            'produk'    => 'required|unique:produk_simpanans',
-            'bunga'     => 'required|numeric',
+            'produk'    => 'required',
         ];
     }
 
@@ -36,8 +35,6 @@ class StoreProdukSimpananRequest extends FormRequest
             'no_produk.required' => 'Nomor produk harus diisi',
             'produk.required'    => 'Nama produk harus diisi',
             'produk.unique'      => 'Nama produk sudah terdaftar',
-            'bunga.required'     => 'Bunga harus diisi',
-            'bunga.numeric'      => 'Bunga harus berupa angka',
         ];
     }
 }

@@ -22,11 +22,11 @@
     <section class="section">
         <div class="section-header">
             <div class="section-header-back">
-                <a href="{{ route('pembukuan.datamemorial.index') }}" class="btn btn-icon"><i class="fa fa-arrow-left"></i></a>
+                <a href="{{ route('pembukuan.datajurnalkas.index') }}" class="btn btn-icon"><i class="fa fa-arrow-left"></i></a>
             </div>
             <h1>Tambah Jurnal</h1>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="{{ route('pembukuan.datamemorial.index') }}">Jurnal</a></div>
+                <div class="breadcrumb-item active"><a href="{{ route('pembukuan.datajurnalkas.index') }}">Jurnal</a></div>
                 <div class="breadcrumb-item">Tambah Jurnal</div>
             </div>
         </div>
@@ -36,13 +36,17 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{ route('pembukuan.datamemorial.store') }}" method="post">
+                            <form action="{{ route('pembukuan.datajurnalkas.store') }}" method="post">
                                 @csrf
                                 <fieldset>
                                     <legend>Tambah Jurnal</legend>
                                     <div class="form-group">
                                         <label for="" class="form-label">Tanggal</label>
                                         <input name="tanggal" type="text" class="form-control datepicker">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="" class="form-label">No Jurnal</label>
+                                        <input name="no_jurnal" type="text" value="{{ $no_jurnal }}" class="form-control" readonly>
                                     </div>
                                     <div class="form-group myDiv">
                                         <label class="form-label">Keterangan</label>
@@ -94,7 +98,10 @@
                                     </table>
                                 </div>
                                 <div class="d-flex justify-content-end">
-                                    <button type="submit" class="btn btn-primary">Simpan</button>
+                                    <div>
+                                        <button type="submit" class="btn btn-primary">Simpan</button>
+                                        <a href="{{ route('pembukuan.datajurnalkas.index') }}" class="btn btn-outline-info">Kembali</a>
+                                    </div>
                                 </div>
                             </form>
                         </div>

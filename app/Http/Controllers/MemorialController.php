@@ -7,6 +7,7 @@ use App\Models\Akun;
 use App\Models\DetailMemorial;
 use App\Models\Memorial;
 use App\Models\SimpananAnggota;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -26,9 +27,15 @@ class MemorialController extends Controller
     public function create()
     {
         $akuns = Akun::all();
+        $jurnal = Memorial::count();
+        $date = Carbon::now();
+
+        $noJurnal = $date->format('dmY') . str_pad($jurnal + 1, 4, '000', STR_PAD_LEFT);
+
 
         return view('pages.pembukuan.memorial.create', [
             'akuns' => $akuns,
+            'no_jurnal' => $noJurnal
         ]);
     }
 
@@ -39,7 +46,9 @@ class MemorialController extends Controller
         try {
             $dataMemorials = $request->validated();
             $memorial = new Memorial();
+            $akuns = Akun::all();
 
+            $memorial->no_jurnal = $dataMemorials['no_jurnal'];
             $memorial->keterangan = $dataMemorials['keterangan'];
             $memorial->tanggal = $dataMemorials['tanggal'];
 
@@ -50,6 +59,13 @@ class MemorialController extends Controller
                     'kredit' => $dataMemorial['kredit'],
                     'akun_id' => $dataMemorial['akun_id'],
                 ]);
+                // foreach ($akuns as $akun) {
+                //     if ($dataMemorial['akun_id'] == $akun->id) {
+                //         $akun->saldo += $dataMemorial['debet'];
+                //         $akun->saldo -= $dataMemorial['kredit'];
+                //     }
+                //     $akun->save();
+                // }
             }
 
             $memorial->save();
@@ -57,7 +73,7 @@ class MemorialController extends Controller
             $memorial->detail_memorials()->saveMany($detailMemorials);
 
             DB::commit();
-            return redirect()->route('pembukuan.datamemorial.index')->with('success', 'Berhasil input data!');
+            return redirect()->route('pembukuan.datajurnalkas.index')->with('success', 'Berhasil input data!');
         } catch (Exception $th) {
             dd($th);
             DB::rollBack();

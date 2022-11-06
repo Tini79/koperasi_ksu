@@ -13,9 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('rekening_pinjamans', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('memorials', function (Blueprint $table) {
+            $table->string('no_jurnal');
         });
     }
 
@@ -26,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rekening_pinjamans');
+        Schema::table('memorials', function (Blueprint $table) {
+            //
+        });
     }
 };

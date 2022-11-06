@@ -29,7 +29,7 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="" class="form-label">Nomor Produk</label>
-                                    <input name="no_produk" type="text" value="{{ old('no_produk') }}" class="form-control @error('no_produk') is-invalid @enderror">
+                                    <input name="no_produk" type="text" value="{{ $produkSimpananNumber }}" class="form-control @error('no_produk') is-invalid @enderror" readonly>
                                     @error('no_produk')
                                     <p class="text-danger small">{{ $message }}</p>
                                     @enderror
@@ -38,13 +38,6 @@
                                     <label for="" class="form-label">Nama Produk</label>
                                     <input name="produk" type="text" value="{{ old('produk') }}" class="form-control @error('produk') is-invalid @enderror">
                                     @error('produk')
-                                    <p class="text-danger small">{{ $message }}</p>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label for="" class="form-label">Bunga</label>
-                                    <input name="bunga" type="text" value="{{ old('bunga') }}" class="form-control @error('bunga') is-invalid @enderror">
-                                    @error('bunga')
                                     <p class="text-danger small">{{ $message }}</p>
                                     @enderror
                                 </div>

@@ -20,9 +20,19 @@ class AuthenticationController extends Controller
         try {
             $credentials = $request->validated();
 
-            if (Auth::attempt($credentials)) {
+            if (Auth::attempt($credentials) && Auth::user()->level->value == 'Admin') {
                 $request->session()->regenerate();
                 return redirect()->intended(route('dashboard'));
+            }
+
+            if (Auth::attempt($credentials) && Auth::user()->level->value == 'Anggota') {
+                $request->session()->regenerate();
+                return redirect()->intended(route('dashboardanggota'));
+            }
+
+            if (Auth::attempt($credentials) && Auth::user()->level->value == 'Ketua') {
+                $request->session()->regenerate();
+                return redirect()->intended(route('dashboardketua'));
             }
         } catch (Exception $th) {
             return redirect()->route('login')->with('danger', 'Gagal Login!');

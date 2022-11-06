@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RekeningSimpanan\SimpananAnggota\StoreSimpananAnggotaRequest;
 use App\Models\Anggota;
-use App\Models\Memorial;
 use App\Models\ProdukSimpanan;
 use App\Models\RekeningSimpanan;
 use App\Models\SimpananAnggota;
@@ -59,26 +58,6 @@ class SimpananAnggotaController extends Controller
             } else {
                 SimpananAnggota::create($datasimpanan);
             }
-
-            // $simpananAnggotas = SimpananAnggota::latest()->get('id')->take(1);
-
-            // foreach ($simpananAnggotas as $simpananAnggota) {
-            //     $anggota = $simpananAnggota->id;
-
-            //     if ($request->transaksi == 'Setor') {
-            //         Memorial::insert([
-            //             'simpanan_anggota_id' => $anggota,
-            //             'tanggal' => $request->tgl_transaksi,
-            //             'debet' => $request->saldo
-            //         ]);
-            //     } else {
-            //         Memorial::insert([
-            //             'simpanan_anggota_id' => $anggota,
-            //             'tanggal' => $request->tgl_transaksi,
-            //             'kredit' => $request->saldo
-            //         ]);
-            //     }
-            // }
 
             return redirect()->route('show.rekeningSimpanan', $rekeningSimpanan->id)->with('success', 'Berhasil input data!');
         } catch (Exception $th) {

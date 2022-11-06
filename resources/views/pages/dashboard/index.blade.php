@@ -13,76 +13,82 @@
     <section class="section">
         <div class="section-header">
             <h1>Dashboard</h1>
+            <div class="section-header-breadcrumb">
+                <div class="breadcrumb-item">Dashboard</div>
+            </div>
         </div>
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                <div class="card card-primary">
-                    <!-- <div class="card-icon bg-primary">
-                        <i class="far fa-user"></i>
-                    </div>
-                    <div class="card-wrap"> -->
-                    <div class="card-header">
-                        <h4>Anggota</h4>
-                    </div>
-                    <div class="card-body">
-                        {{ $anggota }}
-                    </div>
-                    <!-- </div> -->
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                <div class="card card-danger">
-                    <!-- <div class="card-icon bg-danger">
-                        <i class="far fa-newspaper"></i>
-                    </div> -->
-                    <!-- <div class="card-wrap"> -->
-                    <div class="card-header">
-                        <h4>Pegawai</h4>
-                    </div>
-                    <div class="card-body">
-                        {{ $pegawai }}
-                    </div>
-                </div>
-                <!-- </div> -->
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                <div class="card card-warning">
-                    <!-- <div class="card-icon bg-warning">
-                        <i class="far fa-file"></i>
-                    </div> -->
-                    <!-- <div class="card-wrap"> -->
-                    <div class="card-header">
-                        <h4>Pinjaman</h4>
-                    </div>
-                    <div class="card-body">
-                        <!-- <p>Sisa Tagihan</p> -->
-                        @currency($pinjaman)
-                    </div>
-                    <!-- </div> -->
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-                <div class="card card-success">
-                    <!-- <div class="card-wrap"> -->
-                    <div class="card-header">
-                        <!-- <div class="card-icon bg-success">
-                            <i class="fas fa-circle"></i>
-                        </div> -->
-                        <h4>Simpanan</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <p class="col-6">Penarikan Tunai</p>
-                            <p class="col-1">:</p>
-                            <p>{{ $jumlahTarikTunai }}</p>
+        <div>
+            <div class="row">
+                <div class="col-lg-5 col-md-6 col-sm-6 col-12">
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h4>Anggota</h4>
                         </div>
-                        <div class="row">
-                            <p class="col-6">Jumlah Simpanan</p>
-                            <p class="col-1">:</p>
-                            <p>{{ $jumlahSaldo }}</p>
+                        <div class="card-body">
+                            <div class="row">
+                                <p class="col-6">Jumlah Anggota</p>
+                                <p class="col-1">:</p>
+                                <p>{{ $anggota }} orang</p>
+                            </div>
                         </div>
                     </div>
-                    <!-- </div> -->
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-6 col-12">
+                    <div class="card card-danger">
+                        <div class="card-header">
+                            <h4>Pegawai</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <p class="col-6">Jumlah Anggota</p>
+                                <p class="col-1">:</p>
+                                <p>{{ $pegawai }} orang</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="row">
+                    <div class="col-lg-5 col-md-6 col-sm-6 col-12">
+                        <div class="card card-warning">
+                            <div class="card-header">
+                                <h4>Pinjaman</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <p class="col-6">Angsuran Anggota</p>
+                                    <p class="col-1">:</p>
+                                    <p>@currency($jumlahSetoranAnggota)</p>
+                                </div>
+                                <div class="row">
+                                    <p class="col-6">Pinjaman Anggota</p>
+                                    <p class="col-1">:</p>
+                                    <p>@currency($pinjaman)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-6 col-sm-6 col-12">
+                        <div class="card card-success">
+                            <div class="card-header">
+                                <h4>Simpanan</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <p class="col-6">Penarikan Tunai</p>
+                                    <p class="col-1">:</p>
+                                    <p>@currency($jumlahTarikTunai)</p>
+                                </div>
+                                <div class="row">
+                                    <p class="col-6">Simpanan Anggota</p>
+                                    <p class="col-1">:</p>
+                                    <p>@currency($jumlahSaldo)</p>
+                                </div>
+                            </div>
+                            <!-- </div> -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
