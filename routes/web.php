@@ -98,7 +98,7 @@ Route::middleware('verified.admin')->group(function () {
     });
 });
 
-Route::name('laporan.')->prefix('laporan')->group(function () {
+Route::name('laporan.')->prefix('laporan')->middleware('accesstolaporan')->group(function () {
     Route::get('/simpanan', [LaporanSimpananController::class, 'index'])->name('simpanan.index');
     Route::get('/simpanan/pdf', [LaporanSimpananController::class, 'printPdf'])->name('simpanan.pdf');
     Route::get('/pinjaman', [LaporanPinjamanController::class, 'index'])->name('pinjaman.index');

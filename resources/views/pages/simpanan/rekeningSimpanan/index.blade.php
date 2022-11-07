@@ -32,6 +32,7 @@
                             <h4>Data Simpanan</h4>
                         </div>
                         <div class="card-body">
+                            @include('components.session')
                             <div class="table-responsive">
                                 <table class="table-striped table" id="table-1">
                                     <thead>

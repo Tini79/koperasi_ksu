@@ -45,6 +45,7 @@
                             </div>
                         </div>
                         <div class="card-body">
+                            @include('components.session')
                             <div class="row">
                                 <p class="col-4">Nomor</p>
                                 <p>:</p>

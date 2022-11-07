@@ -26,6 +26,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
+                            @include('components.session')
                             <form action="{{ route('index.rekeningSimpanan') }}" method="post">
                                 @csrf
                                 <div class="form-group">

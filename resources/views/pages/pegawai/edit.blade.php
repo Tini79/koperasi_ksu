@@ -27,6 +27,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
+                            @include('components.session')
                             <form action="{{ route('show', ['datapegawai' => $pegawai->id]) }}" method="post">
                                 @csrf
                                 @method('PATCH')

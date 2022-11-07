@@ -39,7 +39,7 @@ class StorePinjamanRequest extends FormRequest
     {
         return [
             'anggota_id'            => 'required',
-            'no_pinjaman'           => 'required|unique:pinjamans',
+            'no_pinjaman'           => 'required',
             'jumlah_pinjaman'       => 'required',
             'tgl_pinjaman'          => 'required',
             'jangka_waktu_pinjaman' => 'required',
@@ -49,7 +49,6 @@ class StorePinjamanRequest extends FormRequest
             'materai'               => 'required',
             'notaris'               => 'required',
             'simpanan_wajib'        => Rule::requiredIf($request->agunan == 'Dengan Agunan'),
-
             'nominal_jaminan'       => Rule::requiredIf($request->agunan == 'Dengan Agunan'),
             'jaminan'               => Rule::requiredIf($request->agunan == 'Dengan Agunan'),
             'keterangan'            => Rule::requiredIf($request->agunan == 'Dengan Agunan'),
@@ -62,7 +61,6 @@ class StorePinjamanRequest extends FormRequest
         return [
             'no_pinjaman.required' => 'Nomor pinjaman harus diisi',
             'anggota_id.required' => 'Nama anggota harus dipilih',
-            'produk_pinjaman_id.required' => 'Produk pinjaman harus dipilih',
             'tgl_pinjaman.required' => 'Tanggal pinjaman harus diisi',
             'agunan.required' => 'Agunan harus dipilih',
             'bunga.required' => 'Bunga harus diisi',

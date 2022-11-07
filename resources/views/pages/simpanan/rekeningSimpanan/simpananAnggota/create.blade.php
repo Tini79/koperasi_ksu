@@ -27,6 +27,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
+                            @include('components.session')
                             <form action="{{ route('datarekeningsimpanan.simpanananggota.store', ['datarekeningsimpanan' => $rekeningSimpanan->id]) }}" method="post">
                                 @csrf
                                 <input type="hidden" name="rekening_simpanan_id" value="{{ $rekeningSimpanan->id }}">

@@ -33,17 +33,22 @@ class StoreSimpananAnggotaRequest extends FormRequest
     public function rules(Request $request)
     {
         return [
-            'anggota_id' => 'required',
+            'anggota_id'           => 'required',
             'rekening_simpanan_id' => 'required',
-            'produk_simpanan_id' => 'required',
-            'tgl_transaksi' => 'required',
-            'transaksi' => 'required',
-            'saldo' => 'required',
+            'produk_simpanan_id'   => 'required',
+            'tgl_transaksi'        => 'required',
+            'transaksi'            => 'required',
+            'saldo'                => 'required',
         ];
     }
 
     public function messages()
     {
-        return [];
+        return [
+            'produk_simpanan_id.required' => 'Produk simpanan harus dipilih',
+            'tgl_transaksi.required'      => 'Tanggal transaksi harus diisi',
+            'transaksi.required'          => 'Transaksi harus diisi',
+            'saldo.required'              => 'Saldo harus diisi',
+        ];
     }
 }

@@ -159,14 +159,16 @@ CREATE TABLE IF NOT EXISTS `anggotas` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table koperasi_ksu.anggotas: ~3 rows (approximately)
+-- Dumping data for table koperasi_ksu.anggotas: ~7 rows (approximately)
 /*!40000 ALTER TABLE `anggotas` DISABLE KEYS */;
 INSERT INTO `anggotas` (`id`, `tgl_daftar`, `nama_anggota`, `nik`, `jenis_kelamin`, `tempat_lahir`, `tgl_lahir`, `pekerjaan`, `agama`, `status_perkawinan`, `no_tlp`, `alamat`, `simpanan_pokok`, `created_at`, `updated_at`) VALUES
 	(1, '2022-01-01', 'Nia', '5104024667008809', 'Perempuan', 'Badung', '1990-01-01', 'Mentor', 'Hindu', 'Cerai Hidup', '081936278911', 'Badung', 10000, '2022-11-06 07:10:01', '2022-11-06 07:10:01'),
 	(2, '2022-01-01', 'Angga', '5104024666656809', 'Perempuan', 'Badung', '1990-01-01', 'Mentor', 'Hindu', 'Cerai Hidup', '081936278911', 'Badung', 10000, '2022-11-06 07:10:01', '2022-11-06 07:10:01'),
-	(3, '2022-11-06', 'buwyvuwiwe', '5104024707008809', 'Perempuan', 'gelagy', '2022-11-06', 'fizur', 'pobymisasi', 'Cerai Hidup', '089883748914', 'pemevoz', 10000, '2022-11-06 07:17:23', '2022-11-06 07:17:23');
+	(3, '2022-11-06', 'buwyvuwiwe', '5104024707008809', 'Perempuan', 'gelagy', '2022-11-06', 'fizur', 'pobymisasi', 'Cerai Hidup', '089883748914', 'pemevoz', 10000, '2022-11-06 07:17:23', '2022-11-06 07:17:23'),
+	(4, '2022-11-07', 'zuzedy', '5104024809000779', 'Laki-Laki', 'qazyw', '2022-11-07', 'hisadeta', 'rylecizup', 'Cerai Mati', '089883748914', 'jyzupakelu', 10000, '2022-11-07 20:39:15', '2022-11-07 20:39:15'),
+	(7, '2022-11-07', 'qelisywug', '5104024709077001', 'Laki-Laki', 'hoduri', '2022-11-07', 'dycohu', 'wijam', 'Belum Kawin', '089883748914', 'dyretijug', 10000, '2022-11-07 20:42:16', '2022-11-07 20:42:16');
 /*!40000 ALTER TABLE `anggotas` ENABLE KEYS */;
 
 -- Dumping structure for table koperasi_ksu.angsuran_pinjamans
@@ -180,13 +182,14 @@ CREATE TABLE IF NOT EXISTS `angsuran_pinjamans` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table koperasi_ksu.angsuran_pinjamans: ~2 rows (approximately)
 /*!40000 ALTER TABLE `angsuran_pinjamans` DISABLE KEYS */;
 INSERT INTO `angsuran_pinjamans` (`id`, `pinjaman_id`, `tanggal_pembayaran`, `nominal_setoran`, `sisa_angsuran`, `status`, `created_at`, `updated_at`) VALUES
 	(1, 1, '2022-11-06', 0, 3999926400, 0, NULL, NULL),
-	(2, 1, '2022-11-06', 411992420, 3587933980, 0, '2022-11-06 13:13:52', '2022-11-06 13:13:52');
+	(2, 1, '2022-11-06', 411992420, 3587933980, 0, '2022-11-06 13:13:52', '2022-11-06 13:13:52'),
+	(3, 2, '2022-11-07', 0, 3924700, 0, NULL, NULL);
 /*!40000 ALTER TABLE `angsuran_pinjamans` ENABLE KEYS */;
 
 -- Dumping structure for table koperasi_ksu.detail_memorials
@@ -201,7 +204,7 @@ CREATE TABLE IF NOT EXISTS `detail_memorials` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table koperasi_ksu.detail_memorials: ~2 rows (approximately)
+-- Dumping data for table koperasi_ksu.detail_memorials: ~3 rows (approximately)
 /*!40000 ALTER TABLE `detail_memorials` DISABLE KEYS */;
 INSERT INTO `detail_memorials` (`id`, `akun_id`, `memorial_id`, `debet`, `kredit`, `created_at`, `updated_at`) VALUES
 	(1, 5, 1, 70000, 0, '2022-11-06 07:46:44', '2022-11-06 07:46:44'),
@@ -236,12 +239,13 @@ CREATE TABLE IF NOT EXISTS `jaminan_agunans` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table koperasi_ksu.jaminan_agunans: ~1 rows (approximately)
 /*!40000 ALTER TABLE `jaminan_agunans` DISABLE KEYS */;
 INSERT INTO `jaminan_agunans` (`id`, `pinjaman_id`, `jaminan`, `nominal_jaminan`, `keterangan`, `created_at`, `updated_at`) VALUES
-	(1, 1, 'Motor', 10000, 'Warna merah', '2022-11-06 07:10:01', '2022-11-06 07:10:01');
+	(1, 1, 'Motor', 10000, 'Warna merah', '2022-11-06 07:10:01', '2022-11-06 07:10:01'),
+	(2, 2, 'In irure sunt aut au', 20000000, 'Ut distinctio Praes', NULL, NULL);
 /*!40000 ALTER TABLE `jaminan_agunans` ENABLE KEYS */;
 
 -- Dumping structure for table koperasi_ksu.memorials
@@ -255,7 +259,7 @@ CREATE TABLE IF NOT EXISTS `memorials` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table koperasi_ksu.memorials: ~2 rows (approximately)
+-- Dumping data for table koperasi_ksu.memorials: ~3 rows (approximately)
 /*!40000 ALTER TABLE `memorials` DISABLE KEYS */;
 INSERT INTO `memorials` (`id`, `tanggal`, `keterangan`, `created_at`, `updated_at`, `no_jurnal`) VALUES
 	(1, '2022-11-06', 'test', '2022-11-06 07:46:44', '2022-11-06 07:46:44', '061120220001'),
@@ -269,9 +273,9 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table koperasi_ksu.migrations: ~18 rows (approximately)
+-- Dumping data for table koperasi_ksu.migrations: ~19 rows (approximately)
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(1, '2014_10_12_000000_create_users_table', 1),
@@ -291,7 +295,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 	(15, '2022_10_20_135239_create_memorials_table', 1),
 	(16, '2022_10_20_160038_create_angsuran_pinjamans_table', 1),
 	(17, '2022_10_31_154213_create_detail_memorials', 1),
-	(18, '2022_11_05_132511_add_no_jurnal_to_memorials', 1);
+	(18, '2022_11_05_132511_add_no_jurnal_to_memorials', 1),
+	(19, '2022_11_06_215753_add_status_to_pinjamans', 2);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 
 -- Dumping structure for table koperasi_ksu.model_has_permissions
@@ -411,15 +416,17 @@ CREATE TABLE IF NOT EXISTS `pinjamans` (
   `simpanan_wajib` double DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `pinjamans_anggota_id_index` (`anggota_id`),
   CONSTRAINT `pinjamans_anggota_id_foreign` FOREIGN KEY (`anggota_id`) REFERENCES `anggotas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table koperasi_ksu.pinjamans: ~1 rows (approximately)
 /*!40000 ALTER TABLE `pinjamans` DISABLE KEYS */;
-INSERT INTO `pinjamans` (`id`, `anggota_id`, `no_pinjaman`, `agunan`, `bunga`, `jumlah_pinjaman`, `tgl_pinjaman`, `jangka_waktu_pinjaman`, `provisi`, `materai`, `notaris`, `simpanan_wajib`, `created_at`, `updated_at`) VALUES
-	(1, 2, '00001', 'Tanpa Agunan', 3, 4000000000, '2022-11-06', 10, 30000, 13600, 30000, 0, '2022-11-06 13:13:41', '2022-11-06 13:13:41');
+INSERT INTO `pinjamans` (`id`, `anggota_id`, `no_pinjaman`, `agunan`, `bunga`, `jumlah_pinjaman`, `tgl_pinjaman`, `jangka_waktu_pinjaman`, `provisi`, `materai`, `notaris`, `simpanan_wajib`, `created_at`, `updated_at`, `status`) VALUES
+	(1, 3, '00001', 'Tanpa Agunan', 3, 4000000000, '2022-11-06', 10, 30000, 13600, 30000, 0, '2022-11-06 13:13:41', '2022-11-06 22:25:49', 1),
+	(2, 4, '00002', 'Dengan Agunan', 3, 4000000, '2022-11-07', 6, 20000, 16900, 18400, 20000, '2022-11-07 21:14:49', '2022-11-07 21:14:49', 0);
 /*!40000 ALTER TABLE `pinjamans` ENABLE KEYS */;
 
 -- Dumping structure for table koperasi_ksu.produk_simpanans
@@ -430,7 +437,7 @@ CREATE TABLE IF NOT EXISTS `produk_simpanans` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table koperasi_ksu.produk_simpanans: ~4 rows (approximately)
 /*!40000 ALTER TABLE `produk_simpanans` DISABLE KEYS */;
@@ -440,18 +447,6 @@ INSERT INTO `produk_simpanans` (`id`, `no_produk`, `produk`, `created_at`, `upda
 	(3, '1003', 'Simpanan Sukarela', '2022-11-06 07:10:01', '2022-11-06 07:10:01'),
 	(4, '1004', 'Hibah/Donasi', '2022-11-06 07:10:01', '2022-11-06 07:10:01');
 /*!40000 ALTER TABLE `produk_simpanans` ENABLE KEYS */;
-
--- Dumping structure for table koperasi_ksu.rekening_pinjamans
-CREATE TABLE IF NOT EXISTS `rekening_pinjamans` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- Dumping data for table koperasi_ksu.rekening_pinjamans: ~0 rows (approximately)
-/*!40000 ALTER TABLE `rekening_pinjamans` DISABLE KEYS */;
-/*!40000 ALTER TABLE `rekening_pinjamans` ENABLE KEYS */;
 
 -- Dumping structure for table koperasi_ksu.rekening_simpanans
 CREATE TABLE IF NOT EXISTS `rekening_simpanans` (
@@ -464,13 +459,15 @@ CREATE TABLE IF NOT EXISTS `rekening_simpanans` (
   PRIMARY KEY (`id`),
   KEY `rekening_simpanans_anggota_id_index` (`anggota_id`),
   CONSTRAINT `rekening_simpanans_anggota_id_foreign` FOREIGN KEY (`anggota_id`) REFERENCES `anggotas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table koperasi_ksu.rekening_simpanans: ~2 rows (approximately)
+-- Dumping data for table koperasi_ksu.rekening_simpanans: ~6 rows (approximately)
 /*!40000 ALTER TABLE `rekening_simpanans` DISABLE KEYS */;
 INSERT INTO `rekening_simpanans` (`id`, `anggota_id`, `no_rekening`, `tgl_daftar`, `created_at`, `updated_at`) VALUES
 	(1, 1, '001', '2022-01-01', '2022-11-06 07:10:01', '2022-11-06 07:10:01'),
-	(2, 3, '0002', '2022-11-06', NULL, NULL);
+	(2, 3, '0002', '2022-11-06', NULL, NULL),
+	(3, 4, '0003', '2022-11-07', NULL, NULL),
+	(6, 7, '0006', '2022-11-07', NULL, NULL);
 /*!40000 ALTER TABLE `rekening_simpanans` ENABLE KEYS */;
 
 -- Dumping structure for table koperasi_ksu.roles
@@ -520,14 +517,16 @@ CREATE TABLE IF NOT EXISTS `simpanan_anggotas` (
   CONSTRAINT `simpanan_anggotas_anggota_id_foreign` FOREIGN KEY (`anggota_id`) REFERENCES `anggotas` (`id`) ON DELETE CASCADE,
   CONSTRAINT `simpanan_anggotas_produk_simpanan_id_foreign` FOREIGN KEY (`produk_simpanan_id`) REFERENCES `produk_simpanans` (`id`) ON DELETE CASCADE,
   CONSTRAINT `simpanan_anggotas_rekening_simpanan_id_foreign` FOREIGN KEY (`rekening_simpanan_id`) REFERENCES `rekening_simpanans` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table koperasi_ksu.simpanan_anggotas: ~3 rows (approximately)
+-- Dumping data for table koperasi_ksu.simpanan_anggotas: ~7 rows (approximately)
 /*!40000 ALTER TABLE `simpanan_anggotas` DISABLE KEYS */;
 INSERT INTO `simpanan_anggotas` (`id`, `anggota_id`, `produk_simpanan_id`, `rekening_simpanan_id`, `tgl_transaksi`, `transaksi`, `saldo`, `created_at`, `updated_at`) VALUES
 	(1, 3, 1, 2, '2022-11-06', 'Setor', 10000, NULL, NULL),
 	(2, 3, 3, 2, '2022-11-06', 'Setor', 3000000, '2022-11-06 13:01:22', '2022-11-06 13:01:22'),
-	(3, 3, 3, 2, '2022-11-06', 'Tarik', 300000, '2022-11-06 13:01:39', '2022-11-06 13:01:39');
+	(3, 3, 3, 2, '2022-11-06', 'Tarik', 300000, '2022-11-06 13:01:39', '2022-11-06 13:01:39'),
+	(4, 4, 1, 3, '2022-11-07', 'Setor', 10000, NULL, NULL),
+	(7, 7, 1, 6, '2022-11-07', 'Setor', 10000, NULL, NULL);
 /*!40000 ALTER TABLE `simpanan_anggotas` ENABLE KEYS */;
 
 -- Dumping structure for table koperasi_ksu.users
@@ -542,14 +541,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table koperasi_ksu.users: ~3 rows (approximately)
+-- Dumping data for table koperasi_ksu.users: ~7 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `pegawai_id`, `anggota_id`, `username`, `password`, `level`, `remember_token`, `created_at`, `updated_at`) VALUES
 	(2, NULL, 3, 'anggota', '$2y$10$G3UQYWR43kFVELR/TP.A4.k36w2hQm6AeqidIF3bWjAVeDnBCLF.a', 'Anggota', NULL, NULL, NULL),
 	(3, 3, NULL, 'admin', '$2y$10$CldQk.t.TZjEnFyaaa8/UuvDO/Z8wnJRa8E2FF7Z8gEzAZlbeWFJi', 'Admin', NULL, NULL, NULL),
-	(4, 4, NULL, 'ketua', '$2y$10$uIYq0QuMXRihM3sJgjIp/e2WBQRO5.r/LPgfX2tgBCIFxr4DQt9Ne', 'Ketua', NULL, NULL, NULL);
+	(4, 4, NULL, 'ketua', '$2y$10$uIYq0QuMXRihM3sJgjIp/e2WBQRO5.r/LPgfX2tgBCIFxr4DQt9Ne', 'Ketua', NULL, NULL, NULL),
+	(5, NULL, 4, 'tenoxo', '$2y$10$V2zApuydq0.W5LdOwTC1Cutp0LCLowuBIDMNUWKA2v.1jY81IX9.q', 'Anggota', NULL, NULL, NULL),
+	(8, NULL, 7, 'buvyr', '$2y$10$rVR8YKXS7FZRxFpom3F64ekvLYfgD7w.hi1/hBbH2OUtTKZRZONvW', 'Anggota', NULL, NULL, NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

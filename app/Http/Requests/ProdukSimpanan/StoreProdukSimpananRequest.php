@@ -25,7 +25,7 @@ class StoreProdukSimpananRequest extends FormRequest
     {
         return [
             'no_produk' => 'required',
-            'produk'    => 'required',
+            'produk'    => 'required|unique:produk_simpanans',
         ];
     }
 

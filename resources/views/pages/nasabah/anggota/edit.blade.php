@@ -27,6 +27,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
+                            @include('components.session')
                             <form action="{{ route('update.dataanggota', ['dataanggota' => $anggota->id]) }}" method="post">
                                 @csrf
                                 @method('PATCH')

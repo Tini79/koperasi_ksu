@@ -52,8 +52,6 @@ class AnggotaController extends Controller
                 'status_perkawinan',
                 'no_tlp',
                 'alamat',
-                'nama_gadis_ibu',
-                'ahli_waris',
                 'simpanan_pokok',
             ]));
 
@@ -130,8 +128,6 @@ class AnggotaController extends Controller
                 'status_perkawinan',
                 'no_tlp',
                 'alamat',
-                'nama_gadis_ibu',
-                'ahli_waris',
             ]));
 
             $dataanggota->save();
@@ -147,6 +143,7 @@ class AnggotaController extends Controller
     {
         try {
             $dataanggota->delete();
+            $dataanggota->user()->delete();
         } catch (Exception $th) {
 
             return back()->with('danger', 'Gagal hapus data!');

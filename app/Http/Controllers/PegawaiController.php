@@ -156,6 +156,7 @@ class PegawaiController extends Controller
         DB::beginTransaction();
         try {
             $datapegawai->delete();
+            $datapegawai->user()->delete();
 
             DB::commit();
         } catch (Exception $th) {

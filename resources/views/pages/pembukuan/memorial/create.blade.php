@@ -36,6 +36,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
+                            @include('components.session')
                             <form action="{{ route('pembukuan.datajurnalkas.store') }}" method="post">
                                 @csrf
                                 <fieldset>

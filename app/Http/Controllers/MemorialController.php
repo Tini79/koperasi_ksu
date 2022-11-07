@@ -41,12 +41,10 @@ class MemorialController extends Controller
 
     public function store(MemorialRequest $request)
     {
-        // dd($request);
         DB::beginTransaction();
         try {
             $dataMemorials = $request->validated();
             $memorial = new Memorial();
-            $akuns = Akun::all();
 
             $memorial->no_jurnal = $dataMemorials['no_jurnal'];
             $memorial->keterangan = $dataMemorials['keterangan'];
@@ -59,13 +57,6 @@ class MemorialController extends Controller
                     'kredit' => $dataMemorial['kredit'],
                     'akun_id' => $dataMemorial['akun_id'],
                 ]);
-                // foreach ($akuns as $akun) {
-                //     if ($dataMemorial['akun_id'] == $akun->id) {
-                //         $akun->saldo += $dataMemorial['debet'];
-                //         $akun->saldo -= $dataMemorial['kredit'];
-                //     }
-                //     $akun->save();
-                // }
             }
 
             $memorial->save();

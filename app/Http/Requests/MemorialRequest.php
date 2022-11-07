@@ -43,4 +43,12 @@ class MemorialRequest extends FormRequest
             'dataMemorial.*.kredit' => 'nullable',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'keterangan.required' => 'Keterangan harus diisi',
+            'tanggal.required' => 'Tanggal harus diisi',
+        ];
+    }
 }

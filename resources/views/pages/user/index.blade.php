@@ -32,12 +32,12 @@
                             <h4>Data User</h4>
                         </div>
                         <div class="card-body">
+                            @include('components.session')
                             <div class="table-responsive">
                                 <table class="table-striped table" id="table-1">
                                     <thead>
                                         <tr>
                                             <th class="text-center col-1">#</th>
-                                            <!-- <th>No Pegawai/Anggota</th> -->
                                             <th>Nama</th>
                                             <th>Username</th>
                                             <th>Level</th>

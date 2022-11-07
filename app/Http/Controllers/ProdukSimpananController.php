@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProdukSimpanan\StoreProdukSimpananRequest;
+use App\Http\Requests\UpdateProdukSimpananRequest;
 use App\Models\ProdukSimpanan;
 use Exception;
 use Illuminate\Http\Request;
@@ -68,7 +69,7 @@ class ProdukSimpananController extends Controller
         ]);
     }
 
-    public function update(StoreProdukSimpananRequest $request, ProdukSimpanan $dataproduksimpanan)
+    public function update(UpdateProdukSimpananRequest $request, ProdukSimpanan $dataproduksimpanan)
     {
         DB::beginTransaction();
         try {

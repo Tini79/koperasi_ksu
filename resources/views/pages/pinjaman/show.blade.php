@@ -38,6 +38,7 @@
                             </div>
                         </div>
                         <div class="card-body">
+                            @include('components.session')
                             @if($pinjaman->status == 1)
                             <h6>Disetujui</h6>
                             @else

@@ -66,5 +66,6 @@ class Kernel extends HttpKernel
         'verified.admin' => \App\Http\Middleware\IsAdmin::class,
         'verified.anggota' => \App\Http\Middleware\IsAnggota::class,
         'verified.ketua' => \App\Http\Middleware\IsKetua::class,
+        'accesstolaporan' => \App\Http\Middleware\AccessToLaporan::class,
     ];
 }

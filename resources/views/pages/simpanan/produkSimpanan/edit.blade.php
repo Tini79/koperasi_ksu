@@ -26,6 +26,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
+                            @include('components.session')
                             <form action="{{ route('show.produksimpanan', ['dataproduksimpanan' => $produksimpanan->id]) }}" method="post">
                                 @csrf
                                 @method('PATCH')

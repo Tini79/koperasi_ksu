@@ -24,7 +24,7 @@ class StoreRekeningSimpananRequest extends FormRequest
     public function rules()
     {
         return [
-            'no_rekening'           => 'required|unique:rekening_simpanans',
+            'no_rekening'           => 'required',
             'anggota_id'            => 'required',
             'tgl_daftar'            => 'required',
             'produk_simpanan_id'    => 'required',
@@ -36,12 +36,10 @@ class StoreRekeningSimpananRequest extends FormRequest
     {
         return [
             'no_rekening.required'          => 'Nomor rekening harus diisi',
-            'no_rekening.unique'             => 'Nomor anggota sudah terdaftar',
             'anggota_id.required'           => 'Nama anggota harus dipilih',
             'tgl_daftar.required'           => 'Tanggal daftar harus diisi',
             'produk_simpanan_id.required'   => 'Produk simpanan harus dipilih',
             'saldo.required'                => 'Saldo harus diisi',
-            'saldo.min'                     => 'Nominal dana minimal Rp10.000,-',
         ];
     }
 }

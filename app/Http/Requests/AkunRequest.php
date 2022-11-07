@@ -38,4 +38,14 @@ class AkunRequest extends FormRequest
             'saldo' => 'required',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'nama_akun.required' => 'Nama akun harus diisi',
+            'kategori.required'  => 'Kategori harus diisi',
+            'kode_akun.required' => 'Kode akun harus diisi',
+            'saldo.required'  => 'Saldo harus diisi',
+        ];
+    }
 }

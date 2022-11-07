@@ -28,6 +28,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
+                            @include('components.session')
                             <fieldset>
                                 <legend>Detail Pinjaman Anggota</legend>
                                 <form action="{{ route('datarekeningpinjaman.pinjamananggota.store', ['datarekeningpinjaman' => $pinjaman->id]) }}" method="post">

@@ -31,14 +31,14 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        User::create([
-            'pegawai_id' => 1,
-            'anggota_id' => null,
-            'username' => 'admin',
-            'password' => Hash::make('admin'),
-            'level' => LevelEnum::Admin->value,
+        // User::create([
+        //     'pegawai_id' => 1,
+        //     'anggota_id' => null,
+        //     'username' => 'admin',
+        //     'password' => Hash::make('admin'),
+        //     'level' => LevelEnum::Admin->value,
 
-        ]);
+        // ]);
 
         Anggota::create([
             'tgl_daftar' => '2022-01-01',
@@ -81,22 +81,22 @@ class DatabaseSeeder extends Seeder
             'divisi' => 'Admin',
         ]);
 
-        Pegawai::create([
-            'id' => 2,
-            'no_pegawai' => '1167',
-            'nama_pegawai' => 'Ryan',
-            'nik' => '5104024667007809',
-            'jenis_kelamin' => 'Laki-laki',
-            'tempat_lahir' => 'Gianyar',
-            'tgl_lahir' => '1990-01-01',
-            'no_tlp' => '081936278911',
-            'alamat' => 'Gianyar',
-            'divisi' => 'Bendahara',
-        ]);
+        // Pegawai::create([
+        //     'id' => 2,
+        //     'no_pegawai' => '1167',
+        //     'nama_pegawai' => 'Ryan',
+        //     'nik' => '5104024667007809',
+        //     'jenis_kelamin' => 'Laki-laki',
+        //     'tempat_lahir' => 'Gianyar',
+        //     'tgl_lahir' => '1990-01-01',
+        //     'no_tlp' => '081936278911',
+        //     'alamat' => 'Gianyar',
+        //     'divisi' => 'Bendahara',
+        // ]);
 
         ProdukSimpanan::create(
             [
-                'no_produk' => '1156',
+                'no_produk' => '00001',
                 'produk' => 'Simpanan Pokok',
                 // 'bunga' => '1',
             ],
@@ -104,16 +104,15 @@ class DatabaseSeeder extends Seeder
 
         ProdukSimpanan::create(
             [
-                'no_produk' => '1157',
+                'no_produk' => '00002',
                 'produk' => 'Simpanan Wajib',
                 // 'bunga' => '2',
             ],
         );
 
-
         ProdukSimpanan::create(
             [
-                'no_produk' => '1158',
+                'no_produk' => '00003',
                 'produk' => 'Simpanan Sukarela',
                 // 'bunga' => '1',
             ],
@@ -121,7 +120,7 @@ class DatabaseSeeder extends Seeder
 
         ProdukSimpanan::create(
             [
-                'no_produk' => '1159',
+                'no_produk' => '00004',
                 'produk' => 'Hibah/Donasi',
                 // 'bunga' => '1',
             ],

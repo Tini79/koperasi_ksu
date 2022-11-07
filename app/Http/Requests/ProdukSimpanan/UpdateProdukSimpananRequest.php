@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\RekeningSimpanan;
+namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateRekeningSimpananRequest extends FormRequest
+class UpdateProdukSimpananRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class UpdateRekeningSimpananRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,18 +24,17 @@ class UpdateRekeningSimpananRequest extends FormRequest
     public function rules()
     {
         return [
-            'no_rekening' => 'required',
-            'anggota_id'  => 'required',
-            'tgl_daftar'  => 'required',
+            'no_produk' => 'required',
+            'produk'    => 'required',
+
         ];
     }
 
     public function messages()
     {
         return [
-            'no_rekening.required' => 'No rekening harus diisi',
-            'anggota_id.required'  => 'Nama anggota harus dipilih',
-            'tgl_daftar.required'  => 'Tanggal daftar harus diisi',
+            'no_produk.required' => 'Nomor produk harus diisi',
+            'produk.required'    => 'Nama produk harus diisi',
         ];
     }
 }
