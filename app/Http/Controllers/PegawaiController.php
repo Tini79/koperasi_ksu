@@ -165,6 +165,6 @@ class PegawaiController extends Controller
             return back()->with('danger', 'Gagal hapus data!');
         }
 
-        return redirect(route('index'))->with('succes', 'Berhasil hapus data!');
+        return redirect()->route('index')->with('success', 'Berhasil hapus data!');
     }
 }

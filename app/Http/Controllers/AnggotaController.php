@@ -93,7 +93,7 @@ class AnggotaController extends Controller
             return back()->with('danger', 'Gagal input data!');
         }
 
-        return redirect(route('index.dataanggota'))->with('success', 'Data berhasil diinput!');
+        return redirect()->route('index.dataanggota')->with('success', 'Data berhasil diinput!');
     }
 
     public function show(Anggota $dataanggota)
@@ -136,7 +136,7 @@ class AnggotaController extends Controller
             return back()->with('danger', 'Gagal edit data!');
         }
 
-        return redirect(route('show.dataanggota', ['dataanggota' => $dataanggota->id]))->with('success', 'Data berhasil diedit!');
+        return redirect()->route('show.dataanggota', ['dataanggota' => $dataanggota->id])->with('success', 'Data berhasil diedit!');
     }
 
     public function destroy(Anggota $dataanggota)
@@ -149,6 +149,6 @@ class AnggotaController extends Controller
             return back()->with('danger', 'Gagal hapus data!');
         }
 
-        return redirect(route('index.dataanggota'))->with('success', 'Berhasil hapus data!');
+        return redirect()->route('index.dataanggota')->with('success', 'Berhasil hapus data!');
     }
 }
