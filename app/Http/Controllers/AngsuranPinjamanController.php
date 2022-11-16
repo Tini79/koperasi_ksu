@@ -32,7 +32,8 @@ class AngsuranPinjamanController extends Controller
             $sisaAngsuran = $dataAngsuran['sisa_angsuran'] - $dataAngsuran['nominal_setoran'];
 
             $angsuranPinjaman['pinjaman_id'] = $request->pinjaman_id;
-            $angsuranPinjaman['tanggal_pembayaran'] = Carbon::now()->format('Y-m-d');
+            // $angsuranPinjaman['tanggal_pembayaran'] = Carbon::now()->format('Y-m-d');
+            $angsuranPinjaman['tanggal_pembayaran'] = $request->tanggal_pembayaran;
             $angsuranPinjaman['nominal_setoran'] = $dataAngsuran['nominal_setoran'];
             $angsuranPinjaman['sisa_angsuran'] = $sisaAngsuran;
 

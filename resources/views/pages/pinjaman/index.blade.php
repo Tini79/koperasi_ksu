@@ -46,7 +46,7 @@
                                             <th>Jumlah Pinjaman</th>
                                             <th>Tanggal Pinjaman</th>
                                             <th>Jangka Waktu</th>
-                                            <th>Agunan</th>
+                                            <th>Jenis Pinjaman</th>
                                             <!-- <th>Status</th> -->
                                             <!-- Masih bingung pada bagian berapa peminjaman dan jenis peminjaman tahun/bulan -->
                                         </tr>

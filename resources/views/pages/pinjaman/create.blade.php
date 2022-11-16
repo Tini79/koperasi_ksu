@@ -83,7 +83,7 @@
                                 <fieldset>
                                     <legend>Agunan</legend>
                                     <div class="form-group">
-                                        <label class="form-label">Agunan</label>
+                                        <label class="form-label">Jenis Pinjaman</label>
                                         <select name="agunan" value="{{ old('agunan') }}" id="agunan" class="form-control @error('agunan') is-invalid @enderror select2">
                                             <option value="" disabled selected></option>
                                             @foreach(\App\Enums\AgunanEnum::cases() as $agunan)

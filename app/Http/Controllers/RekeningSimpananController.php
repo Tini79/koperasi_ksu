@@ -5,12 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\RekeningSimpanan\StoreRekeningSimpananRequest;
 use App\Http\Requests\RekeningSimpanan\UpdateRekeningSimpananRequest;
 use App\Models\Anggota;
-use App\Models\Pegawai;
 use App\Models\ProdukSimpanan;
 use App\Models\RekeningSimpanan;
-use App\Models\SimpananAnggota;
 use Exception;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class RekeningSimpananController extends Controller

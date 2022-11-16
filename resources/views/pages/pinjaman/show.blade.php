@@ -29,7 +29,6 @@
                         <div class="card-header justify-content-between">
                             <h4>{{ $pinjaman->anggota->nama_anggota }}</h4>
                             <div class="d-flex">
-                                <!-- anggota -->
                                 <form action="{{ route('destroy.pinjaman', ['datapinjaman' => $pinjaman->id]) }}" method="post">
                                     @csrf
                                     @method('DELETE')
@@ -40,9 +39,11 @@
                         <div class="card-body">
                             @include('components.session')
                             @if($pinjaman->status == 1)
-                            <h6>Disetujui</h6>
+                            <h6 class="text-info">Disetujui</h6>
+                            @elseif($pinjaman->status == null)
+                            <h6 class="text-warning">Menunggu</h6>
                             @else
-                            <h6>Tidak Disetujui</h6>
+                            <h6 class="text-danger">Tidak Disetujui</h6>
                             @endif
                             <div class="row">
                                 <p class="col-4">Nomor Pinjaman</p>
@@ -70,18 +71,19 @@
                                 <p class="col">{{ $pinjaman->jangka_waktu_pinjaman }} hari</p>
                             </div>
                             <div class="row">
-                                <p class="col-4">Agunan</p>
+                                <p class="col-4">Jenis Pinjaman</p>
                                 <p>:</p>
                                 <p class="col">{{ $pinjaman->agunan }}</p>
                             </div>
-                            <div class="d-flex justify-content-end">
+                            @if($pinjaman->status == null)
+                            <div class="d-flex justify-content-end" id="butonConfirm">
                                 <div class="row">
                                     <div class="mr-2">
                                         <form action="{{ route('update.pinjaman', ['datapinjaman' => $pinjaman->id]) }}" method="post">
                                             @csrf
                                             @method('PATCH')
                                             <input type="hidden" name="status" value="1">
-                                            <button class="btn btn-info">Setuju</button>
+                                            <button class="btn confirmBtn btn-info" onclick="clickConfirmBtn()">Setuju</button>
                                         </form>
                                     </div>
                                     <div>
@@ -89,17 +91,17 @@
                                             @csrf
                                             @method('PATCH')
                                             <input type="hidden" name="status" value="0">
-                                            <button class="btn btn-outline-danger">Tidak Setuju</button>
+                                            <button class="btn confirmBtn btn-outline-danger" onclick="clickConfirmBtn()">Tidak Setuju</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
+                            @endif
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </section>
 
     <section class="section">
@@ -111,7 +113,11 @@
                             <h4>Data Angsuran Pinjaman</h4>
                             <div class="">
                                 @if($sisaAngsuran->status == 0)
+                                @if($pinjaman->status == 1)
                                 <a href="{{ route('datarekeningpinjaman.pinjamananggota.create', ['datarekeningpinjaman' => $pinjaman->id]) }}" class="btn btn-outline-primary"><i class="fas fa-plus"></i> Bayar</a>
+                                @else
+                                <a href="{{ route('datarekeningpinjaman.pinjamananggota.create', ['datarekeningpinjaman' => $pinjaman->id]) }}" class="btn btn-secondary disabled"><i class="fas fa-plus"></i> Bayar</a>
+                                @endif
                                 @else
                                 <button type="button" class="btn btn-secondary">Sudah lunas</button>
                                 @endif
@@ -156,6 +162,5 @@
 @push('scripts')
 <!-- JS Libraies -->
 <script src="{{ asset('library/summernote/dist/summernote-bs4.js') }}"></script>
-
 <!-- Page Specific JS File -->
 @endpush

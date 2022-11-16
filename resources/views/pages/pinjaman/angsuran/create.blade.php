@@ -74,6 +74,13 @@
 
                             <fieldset>
                                 <legend>Bayar Angsuran Pinjaman</legend>
+                                <div class="form-group">
+                                    <label class="form-label">Tanggal Transaksi</label>
+                                    <input type="text" name="tanggal_pembayaran" class="form-control @error('tanggal_pembayaran') is-invalid @enderror datepicker" value="{{ $pinjaman->sisaAngsuran()->tanggal_pembayaran }}">
+                                    @error('tanggal_pembayaran')
+                                    <p class="text-danger small">{{ $message }}</p>
+                                    @enderror
+                                </div>
                                 <input type="text" name="pinjaman_id" value="{{ $pinjaman->id }}" hidden>
                                 <div class="form-group">
                                     <label class="form-label">Sisa Angsuran</label>
