@@ -60,19 +60,6 @@ class SimpananAnggotaController extends Controller
                 SimpananAnggota::create($datasimpanan);
             }
 
-            $startDate = Carbon::now()->startOfMonth();
-            $endDate = Carbon::now()->endOfMonth();
-
-            // if ($startDate <= $request->tgl_transaksi && $endDate >= $request->tgl_transaksi) {
-            //     if ($rekeningSimpanan->produk_simpanan_id == 1) {
-            //         dd('t');
-            //         return [
-            //             'rekeningSimpanan' => 'unique:rekening_simpanans'
-            //         ];
-            //     }
-            // }
-
-
             return redirect()->route('show.rekeningSimpanan', $rekeningSimpanan->id)->with('success', 'Berhasil input data!');
         } catch (Exception $th) {
             throw $th;

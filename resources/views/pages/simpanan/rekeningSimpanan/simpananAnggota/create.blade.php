@@ -13,7 +13,7 @@
     <section class="section">
         <div class="section-header">
             <div class="section-header-back">
-                <a href="{{ route('index.rekeningSimpanan') }}" class="btn btn-icon"><i class="fa fa-arrow-left"></i></a>
+                <a href="{{ route('show.rekeningSimpanan', $rekeningSimpanan->id) }}" class="btn btn-icon"><i class="fa fa-arrow-left"></i></a>
             </div>
             <h1>Tambah Simpanan</h1>
             <div class="section-header-breadcrumb">

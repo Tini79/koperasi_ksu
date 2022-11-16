@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\RekeningSimpanan\SimpananAnggota;
 
+use Carbon\Carbon;
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
 
 class StoreSimpananAnggotaRequest extends FormRequest
 {
@@ -32,6 +33,9 @@ class StoreSimpananAnggotaRequest extends FormRequest
      */
     public function rules(Request $request)
     {
+        // $startDate = Carbon::now()->startOfMonth()->format('Y-m-d');
+        // $endDate = Carbon::now()->endOfMonth()->format('Y-m-d');
+
         return [
             'anggota_id'           => 'required',
             'rekening_simpanan_id' => 'required',
@@ -46,6 +50,7 @@ class StoreSimpananAnggotaRequest extends FormRequest
     {
         return [
             'produk_simpanan_id.required' => 'Produk simpanan harus dipilih',
+            'produk_simpanan_id.unique'   => 'Produk simpanan pokok tidak bisa dipilih',
             'tgl_transaksi.required'      => 'Tanggal transaksi harus diisi',
             'transaksi.required'          => 'Transaksi harus diisi',
             'saldo.required'              => 'Saldo harus diisi',
