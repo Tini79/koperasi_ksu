@@ -79,6 +79,7 @@
                                         </tr>
                                     </tfoot>
                                 </table>
+                                @dd($akunAset->childs)
                             </div>
                         </div>
                     </div>

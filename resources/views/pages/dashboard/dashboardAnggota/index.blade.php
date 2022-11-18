@@ -37,16 +37,14 @@
                                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                     @if($pinjaman)
                                     @if($pinjaman)
-                                    <h6>Pinjaman</h6>
+                                    <h6>Rekening Pinjaman</h6>
                                     <div class="row">
-                                        <p class="col-4">Nomor Pinjaman</p>
-                                        <p>:</p>
                                         <p class="col">{{ $pinjaman->no_pinjaman }}</p>
                                     </div>
                                     <div class="row">
                                         <p class="col-4">Nominal Pengajuan</p>
                                         <p>:</p>
-                                        <p class="col">{{ $pinjaman->jumlah_pinjaman }}</p>
+                                        <p class="col">@currency($pinjaman->jumlah_pinjaman)</p>
                                     </div>
                                     <div class="row">
                                         <p class="col-4">Agunan</p>
@@ -81,38 +79,29 @@
                                     <div class="card-body">
                                         <hr>
                                         <h6>Angsuran Pinjaman</h6>
-                                        <div class="row">
-                                            <p class="col-4">Nominal Angsuran</p>
-                                            <p>:</p>
-                                            @if($pinjaman->agunan == 'Tanpa Agunan')
-                                            <p class="col">@currency($pinjaman->setBungaFlat())</p>
-                                            @else
-                                            <p class="col">@currency($pinjaman->setBungaMenurun())</p>
-                                            @endif
-                                        </div>
-                                        <div class="row">
-                                            <p class="col-4">Sisa Angsuran</p>
-                                            <p>:</p>
-                                            <p class="col">@currency($pinjaman->sisaAngsuran()->sisa_angsuran)</p>
-                                        </div>
-                                        <div class="row">
-                                            <p class="col-4">Jangka Waktu</p>
-                                            <p>:</p>
-                                            <p class="col">{{ $pinjaman->jangka_waktu_pinjaman }} bulan</p>
-                                        </div>
-                                        <div class="row">
-                                            <p class="col-4">Transaksi Terakhir</p>
-                                            <p>:</p>
-                                            <p class="col">{{ $angsuranTerakhir->tanggal_pembayaran }}</p>
-                                        </div>
-                                        <div class="row">
-                                            <p class="col-4">Status</p>
-                                            <p>:</p>
-                                            <div>
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control form-control-sm" value="{{ $pinjaman->status == 0 ? 'Lunas' : 'Belum Lunas' }}" disabled>
-                                                </div>
-                                            </div>
+                                        <div class="table-responsive">
+                                            <table class="table-striped table" id="table-1">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-center">#</th>
+                                                        <th>Tanggal Pembayaran</th>
+                                                        <th>Nominal Setoran</th>
+                                                        <th>Sisa Angsuran</th>
+                                                        <th>Status</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach($pinjaman->angsuran_pinjamans as $key => $angsuranPinjaman)
+                                                    <tr>
+                                                        <td class="text-center">{{ $key + 1 }}</td>
+                                                        <td>{{ $angsuranPinjaman->tanggal_pembayaran }}</td>
+                                                        <td>@currency($angsuranPinjaman->nominal_setoran)</td>
+                                                        <td>@currency($angsuranPinjaman->sisa_angsuran)</td>
+                                                        <td>{{ $angsuranPinjaman->status == 0 ? 'Belum Lunas' : 'Lunas' }}</td>
+                                                    </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                     @endif
@@ -123,10 +112,8 @@
                                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                     @if($simpanan)
                                     @if($simpanan)
-                                    <h6>Simpanan</h6>
+                                    <h6>Rekening Simpanan</h6>
                                     <div class="row">
-                                        <p class="col-4">Nomor Simpanan</p>
-                                        <p>:</p>
                                         <p class="col">{{ $simpanan->no_rekening }}</p>
                                     </div>
                                     <div class="row">
@@ -139,37 +126,35 @@
                                         <p>:</p>
                                         <p class="col">@currency($simpanan->tarik())</p>
                                     </div>
-                                    <div class="row">
-                                        <p class="col-4">Tanggal Transaksi Terakhir</p>
-                                        <p>:</p>
-                                        <p class="col">{{ $transaksiSimpananTerakhir->tgl_transaksi }}</p>
-                                    </div>
                                     <div class="card-body">
                                         <hr>
                                         <h6>Detail Simpanan</h6>
-                                        @foreach($detailSimpanans as $detailSimpanan)
-                                        <div class="row">
-                                            <p class="col-4">Jenis Simpanan</p>
-                                            <p>:</p>
-                                            <p class="col">{{ $detailSimpanan->produk_simpanan->produk }}</p>
+                                        <div class="table-responsive">
+                                            <table class="table-striped table" id="table-1">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-center">#</th>
+                                                        <!-- <th>Admin</th> -->
+                                                        <th>Tanggal Transaksi</th>
+                                                        <th>Jenis Simpanan</th>
+                                                        <th>Jenis Transaksi</th>
+                                                        <th>Saldo</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach($detailSimpanans as $key => $detailSimpanan)
+                                                    <tr>
+                                                        <td class="text-center">{{ $key + 1 }}</td>
+                                                        <!-- <td></td> -->
+                                                        <td>{{ $detailSimpanan->tgl_transaksi }}</td>
+                                                        <td>{{ $detailSimpanan->produk_simpanan->produk }}</td>
+                                                        <td>{{ $detailSimpanan->transaksi }}</td>
+                                                        <td>@currency($detailSimpanan->saldo)</td>
+                                                    </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
                                         </div>
-                                        <div class="row">
-                                            <p class="col-4">Saldo Simpanan</p>
-                                            <p>:</p>
-                                            <p class="col">@currency($detailSimpanan->saldo)</p>
-                                        </div>
-                                        <div class="row">
-                                            <p class="col-4">Transaksi</p>
-                                            <p>:</p>
-                                            <p class="col">{{ $detailSimpanan->transaksi }}</p>
-                                        </div>
-                                        <div class="row">
-                                            <p class="col-4">Tanggal Transaksi Terakhir</p>
-                                            <p>:</p>
-                                            <p class="col">{{ $detailSimpanan->tgl_transaksi }}</p>
-                                        </div>
-                                        <hr>r
-                                        @endforeach
                                         @endif
                                         @else
                                         <h6>Belum Ada Simpanan</h6>

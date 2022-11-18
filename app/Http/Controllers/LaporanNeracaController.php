@@ -22,10 +22,6 @@ class LaporanNeracaController extends Controller
             $akun->saldo_calculate_date_between($start, $end);
             return $akun;
         });
-        // $akunEkuitas = Akun::getAkunWithCallback(Akun::where('kode_akun', '300')->first(), function ($akun)  use ($start, $end) {
-        //     $akun->saldo_calculate_date_between($start, $end);
-        //     return $akun;
-        // });
         $akunPendapatan = Akun::getAkunWithCallback(Akun::where('kode_akun', '400')->first(), function ($akun)  use ($start, $end) {
             $akun->saldo_calculate_date_between($start, $end);
             return $akun;

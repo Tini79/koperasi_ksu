@@ -8,6 +8,7 @@ use App\Models\RekeningSimpanan;
 use App\Models\SimpananAnggota;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class DashboardAnggotaController extends Controller
 {
@@ -17,17 +18,14 @@ class DashboardAnggotaController extends Controller
         $pinjaman = Pinjaman::where('anggota_id', $userId)->with('anggota', 'angsuran_pinjamans')->first();
         $statusPinjaman = AngsuranPinjaman::latest()->get()->first();
         $simpanan = RekeningSimpanan::where('anggota_id', $userId)->with('simpanan_anggotas')->first();
-        $detailSimpanans = SimpananAnggota::where('anggota_id', $userId)->get();
-        $transaksiSimpananTerakhir = SimpananAnggota::latest()->first();
-        $angsuranTerakhir = AngsuranPinjaman::latest()->first();
+        $detailSimpanans = SimpananAnggota::where('anggota_id', $userId)
+            ->get();
 
         return view('pages.dashboard.dashboardAnggota.index', [
             'pinjaman' => $pinjaman,
             'simpanan' => $simpanan,
             'statusPinjaman' => $statusPinjaman,
-            'transaksiSimpananTerakhir' => $transaksiSimpananTerakhir,
-            'angsuranTerakhir' => $angsuranTerakhir,
-            'detailSimpanans' => $detailSimpanans
+            'detailSimpanans' => $detailSimpanans,
         ]);
     }
 }

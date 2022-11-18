@@ -19,6 +19,8 @@ class Akun extends Model
     public $saldo_total_kredit = 0;
     public $saldo_debet = 0;
     public $saldo_kredit = 0;
+    public $saldo_neraca_debet = 0;
+    public $saldo_neraca_kredit = 0;
 
     public function memorials()
     {
