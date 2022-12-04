@@ -10,10 +10,11 @@
 @section('main')
 <div class="card card-primary">
     <div class="card-header">
-        <h4>Login</h4>
+        <h4>Masuk</h4>
     </div>
 
     <div class="card-body">
+        @include('components.session')
         <form action="{{ route('auth') }}" method="POST">
             @csrf
             <div class="form-group">
@@ -34,8 +35,11 @@
 
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
-                    Login
+                    Masuk
                 </button>
+            </div>
+            <div class="text-center">
+                <a href="{{ route('auth.register') }}">Daftar?</a>
             </div>
         </form>
     </div>

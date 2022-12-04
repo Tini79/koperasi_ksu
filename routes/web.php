@@ -19,6 +19,7 @@ use App\Http\Controllers\MemorialController;
 use App\Http\Controllers\PinjamanController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\ProdukSimpananController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\RekeningSimpananController;
 use App\Http\Controllers\SimpananAnggotaController;
 use App\Http\Controllers\UserController;
@@ -31,6 +32,8 @@ Route::get('/dashboardanggota', [DashboardAnggotaController::class, 'index'])->n
 
 Route::get('/', [AuthenticationController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/', [AuthenticationController::class, 'authenticate'])->name('auth')->middleware('guest');
+Route::get('/auth-register', [RegisterController::class, 'index'])->name('register')->middleware('guest');
+Route::post('/auth-register', [RegisterController::class, 'store'])->name('auth.register')->middleware('guest');
 Route::post('/logout', [AuthenticationController::class, 'logout'])->name('logout')->middleware('auth');
 Route::middleware('verified.admin')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

@@ -57,8 +57,9 @@
                                 <table class="table" id="table" border="1">
                                     <thead>
                                         <tr>
-                                            <th>Aktiva Lancar</th>
-                                            <th>Utang Lancar</th>
+                                            <th>Uraian</th>
+                                            <th>Debit</th>
+                                            <th>Kredit</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -67,6 +68,15 @@
                                         @include('pages.laporan.neraca.child' , ['akun'=> $akunBebanOperasional])
                                         @include('pages.laporan.neraca.child' , ['akun'=> $akunTransaksi])
                                     </tbody>
+                                    <!-- <tfoot>
+                                        <tr>
+                                            <th class="text-right">Jumlah</th> -->
+                                    <!-- <td>@currency($akunAset->saldo + $akunKewajiban->saldo + $akunPendapatan->saldo + $akunBebanOperasional->saldo + $akunArusKas->saldo + $akunSaldoModalAwal->saldo + $akunTransaksi->saldo)</td>
+                                            <td>@currency($akunAset->saldo + $akunKewajiban->saldo + $akunPendapatan->saldo + $akunBebanOperasional->saldo + $akunArusKas->saldo + $akunSaldoModalAwal->saldo + $akunTransaksi->saldo)</td> -->
+                                    <!-- <td id="totalDebit"></td>
+                                            <td id="totalKredit"></td>
+                                        </tr>
+                                    </tfoot> -->
                                 </table>
                                 <table class="table">
                                     <tfoot class="bg-secondary">

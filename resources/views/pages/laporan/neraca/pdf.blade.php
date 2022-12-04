@@ -18,7 +18,7 @@
                     <h6>Bulan {{ $date }}</h6>
                 </div>
                 <div class="table-responsive">
-                    <table class="table" border="1">
+                    <table class="table" id="table" border="1">
                         <thead>
                             <tr>
                                 <th class="p-1 text-center">Uraian</th>
@@ -35,19 +35,44 @@
                             @include('pages.laporan.neraca.child' , ['akun'=> $akunSaldoModalAwal])
                             @include('pages.laporan.neraca.child' , ['akun'=> $akunTransaksi])
                         </tbody>
-                        <tfoot>
+                        <!-- <tfoot>
                             <tr>
                                 <th class="text-right">Jumlah</th>
                                 <td>@currency($akunAset->saldo + $akunKewajiban->saldo + $akunPendapatan->saldo + $akunBebanOperasional->saldo + $akunArusKas->saldo + $akunSaldoModalAwal->saldo + $akunTransaksi->saldo)</td>
                                 <td>@currency($akunAset->saldo + $akunKewajiban->saldo + $akunPendapatan->saldo + $akunBebanOperasional->saldo + $akunArusKas->saldo + $akunSaldoModalAwal->saldo + $akunTransaksi->saldo)</td>
                             </tr>
+                        </tfoot> -->
+                    </table>
+                    <table class="table">
+                        <tfoot class="bg-secondary">
+                            <th class="text-right col-md-5">Jumlah</th>
+                            <td id="totalKredit" class="col-md-3"></td>
+                            <td id="totalDebit" class="col-md-3"></td>
                         </tfoot>
                     </table>
                 </div>
             </div>
         </section>
-
     </div>
 </body>
+<script type="text/javascript">
+    var table = document.getElementById("table"),
+        sumValDebit = 0,
+        sumValKredit = 0;
+    for (var i = 1; i < table.rows.length; i++) {
+        var cellValue = table.rows[i].cells[1].innerHTML;
+        var replaceVal = cellValue.replace('Rp', '').replaceAll('.', '');
+        sumValDebit = parseFloat(sumValDebit) + parseFloat(replaceVal);
+    }
+
+    for (var i = 1; i < table.rows.length; i++) {
+        var cellValue = table.rows[i].cells[2].innerHTML;
+        var replaceVal = cellValue.replace('Rp', '').replaceAll('.', '');
+        sumValKredit = parseFloat(sumValKredit) + parseFloat(replaceVal);
+    }
+
+    document.getElementById("totalDebit").innerHTML = sumValDebit
+    document.getElementById("totalKredit").innerHTML = sumValKredit
+</script>
 
 </html>

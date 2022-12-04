@@ -70,19 +70,7 @@ class LaporanNeracaController extends Controller
             $akun->saldo_calculate_date_between($start, $end);
             return $akun;
         });
-        $akunPendapatan = Akun::getAkunWithCallback(Akun::where('kode_akun', '400')->first(), function ($akun)  use ($start, $end) {
-            $akun->saldo_calculate_date_between($start, $end);
-            return $akun;
-        });
         $akunBebanOperasional = Akun::getAkunWithCallback(Akun::where('kode_akun', '500')->first(), function ($akun)  use ($start, $end) {
-            $akun->saldo_calculate_date_between($start, $end);
-            return $akun;
-        });
-        $akunArusKas = Akun::getAkunWithCallback(Akun::where('kode_akun', '600')->first(), function ($akun)  use ($start, $end) {
-            $akun->saldo_calculate_date_between($start, $end);
-            return $akun;
-        });
-        $akunSaldoModalAwal = Akun::getAkunWithCallback(Akun::where('kode_akun', '700')->first(), function ($akun)  use ($start, $end) {
             $akun->saldo_calculate_date_between($start, $end);
             return $akun;
         });
@@ -91,14 +79,11 @@ class LaporanNeracaController extends Controller
             return $akun;
         });
 
-        $pdf = PDF::loadView('pages.laporan.neraca.pdf', [
+        $pdf = PDF::setOption('enable-javascript', true)->setOption('javascript-delay', 13500)->loadView('pages.laporan.neraca.pdf', [
             'date' => $date,
             'akunAset' => $akunAset,
             'akunKewajiban' => $akunKewajiban,
-            'akunPendapatan' => $akunPendapatan,
             'akunBebanOperasional' => $akunBebanOperasional,
-            'akunArusKas' => $akunArusKas,
-            'akunSaldoModalAwal' => $akunSaldoModalAwal,
             'akunTransaksi' => $akunTransaksi,
         ]);
 
