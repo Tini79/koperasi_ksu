@@ -29,7 +29,7 @@
                         <tbody>
                             @include('pages.laporan.neraca.child' , ['akun'=> $akunAset])
                             @include('pages.laporan.neraca.child' , ['akun'=> $akunKewajiban])
-                            @include('pages.laporan.neraca.child' , ['akun'=> $akunBebanOperasional])
+                            @include('pages.laporan.neraca.child' , ['akun'=> $akunEkuitas])
                             @include('pages.laporan.neraca.child' , ['akun'=> $akunTransaksi])
                         </tbody>
                     </table>

@@ -26,7 +26,7 @@ class LaporanNeracaController extends Controller
             $akun->saldo_calculate_date_between($start, $end);
             return $akun;
         });
-        $akunBebanOperasional = Akun::getAkunWithCallback(Akun::where('kode_akun', '500')->first(), function ($akun)  use ($start, $end) {
+        $akunEkuitas = Akun::getAkunWithCallback(Akun::where('kode_akun', '300')->first(), function ($akun)  use ($start, $end) {
             $akun->saldo_calculate_date_between($start, $end);
             return $akun;
         });
@@ -46,9 +46,8 @@ class LaporanNeracaController extends Controller
         return view('pages.laporan.neraca.index', [
             'akunAset' => $akunAset,
             'akunKewajiban' => $akunKewajiban,
-            // 'akunEkuitas' => $akunEkuitas,
             'akunPendapatan' => $akunPendapatan,
-            'akunBebanOperasional' => $akunBebanOperasional,
+            'akunEkuitas' => $akunEkuitas,
             'akunArusKas' => $akunArusKas,
             'akunSaldoModalAwal' => $akunSaldoModalAwal,
             'akunTransaksi' => $akunTransaksi,
@@ -70,7 +69,7 @@ class LaporanNeracaController extends Controller
             $akun->saldo_calculate_date_between($start, $end);
             return $akun;
         });
-        $akunBebanOperasional = Akun::getAkunWithCallback(Akun::where('kode_akun', '500')->first(), function ($akun)  use ($start, $end) {
+        $akunEkuitas = Akun::getAkunWithCallback(Akun::where('kode_akun', '300')->first(), function ($akun)  use ($start, $end) {
             $akun->saldo_calculate_date_between($start, $end);
             return $akun;
         });
@@ -83,7 +82,7 @@ class LaporanNeracaController extends Controller
             'date' => $date,
             'akunAset' => $akunAset,
             'akunKewajiban' => $akunKewajiban,
-            'akunBebanOperasional' => $akunBebanOperasional,
+            'akunEkuitas' => $akunEkuitas,
             'akunTransaksi' => $akunTransaksi,
         ]);
 

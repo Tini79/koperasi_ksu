@@ -54,33 +54,57 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table" id="table" border="1">
-                                    <thead>
-                                        <tr>
-                                            <th>Aktiva Lancar</th>
-                                            <th>Utang Lancar</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @include('pages.laporan.neraca.child' , ['akun'=> $akunAset])
-                                        @include('pages.laporan.neraca.child' , ['akun'=> $akunKewajiban])
-                                        @include('pages.laporan.neraca.child' , ['akun'=> $akunBebanOperasional])
-                                        @include('pages.laporan.neraca.child' , ['akun'=> $akunTransaksi])
-                                    </tbody>
-                                </table>
-                                <table class="table">
-                                    <tfoot>
-                                        <th class="text-right col-md-5">Jumlah</th>
-                                        <td id="totalDebit" class="col-md-3"></td>
-                                        <td id="totalKredit" class="col-md-3"></td>
-                                    </tfoot>
-                                </table>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <table class="table" id="table" border="1">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="2">Activa</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @include('pages.laporan.neraca.child' , ['akun'=> $akunAset])
+                                                @include('pages.laporan.neraca.child' , ['akun'=> $akunTransaksi])
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-6">
+                                        <table class="table" id="table2" border="1">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="2">Pasiva dan Ekuitas</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @include('pages.laporan.neraca.child' , ['akun'=> $akunKewajiban])
+                                                @include('pages.laporan.neraca.child' , ['akun'=> $akunEkuitas])
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <table class="table">
+                                            <tfoot class="bg-secondary">
+                                                <th class="text-right col-md-5">Jumlah</th>
+                                                <td id="totalDebit" class="col-md-3"></td>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                    <div class="col-6">
+                                        <table class="table">
+                                            <tfoot class="bg-secondary">
+                                                <th class="text-right col-md-5">Jumlah</th>
+                                                <td id="totalKredit" class="col-md-3"></td>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 
 </div>
@@ -93,14 +117,16 @@
     var table = document.getElementById("table"),
         sumValDebit = 0,
         sumValKredit = 0;
+    var table2 = document.getElementById("table2");
+    console.log(table)
     for (var i = 1; i < table.rows.length; i++) {
         var cellValue = table.rows[i].cells[1].innerHTML;
         var replaceVal = cellValue.replace('Rp', '').replaceAll('.', '');
         sumValDebit = parseFloat(sumValDebit) + parseFloat(replaceVal);
     }
 
-    for (var i = 1; i < table.rows.length; i++) {
-        var cellValue = table.rows[i].cells[2].innerHTML;
+    for (var i = 1; i < table2.rows.length; i++) {
+        var cellValue = table2.rows[i].cells[1].innerHTML;
         var replaceVal = cellValue.replace('Rp', '').replaceAll('.', '');
         sumValKredit = parseFloat(sumValKredit) + parseFloat(replaceVal);
     }
