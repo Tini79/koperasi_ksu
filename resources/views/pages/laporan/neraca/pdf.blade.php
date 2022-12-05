@@ -44,7 +44,7 @@
                         </tfoot> -->
                     </table>
                     <table class="table">
-                        <tfoot class="bg-secondary">
+                        <tfoot>
                             <th class="text-right col-md-5">Jumlah</th>
                             <td id="totalKredit" class="col-md-3"></td>
                             <td id="totalDebit" class="col-md-3"></td>
