@@ -1,0 +1,20 @@
+/**
+ *
+ * You can write your CSS code here, DO NOT touch the default JavaScript file
+ * because it will make it harder for you to update.
+ * 
+ */
+
+/*# sourceMappingURL=custom.css.map */
+
+.cs-dropdown-menu {
+    position: absolute;
+    transform: translate3d(0px, 28px, 0px);
+    top: 0px;
+    left: 0px;
+    will-change: transform;
+}
+
+.override-line-height {
+    line-height: 12px !important;
+}
