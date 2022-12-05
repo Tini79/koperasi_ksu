@@ -29,19 +29,9 @@
                         <tbody>
                             @include('pages.laporan.neraca.child' , ['akun'=> $akunAset])
                             @include('pages.laporan.neraca.child' , ['akun'=> $akunKewajiban])
-                            @include('pages.laporan.neraca.child' , ['akun'=> $akunPendapatan])
                             @include('pages.laporan.neraca.child' , ['akun'=> $akunBebanOperasional])
-                            @include('pages.laporan.neraca.child' , ['akun'=> $akunArusKas])
-                            @include('pages.laporan.neraca.child' , ['akun'=> $akunSaldoModalAwal])
                             @include('pages.laporan.neraca.child' , ['akun'=> $akunTransaksi])
                         </tbody>
-                        <!-- <tfoot>
-                            <tr>
-                                <th class="text-right">Jumlah</th>
-                                <td>@currency($akunAset->saldo + $akunKewajiban->saldo + $akunPendapatan->saldo + $akunBebanOperasional->saldo + $akunArusKas->saldo + $akunSaldoModalAwal->saldo + $akunTransaksi->saldo)</td>
-                                <td>@currency($akunAset->saldo + $akunKewajiban->saldo + $akunPendapatan->saldo + $akunBebanOperasional->saldo + $akunArusKas->saldo + $akunSaldoModalAwal->saldo + $akunTransaksi->saldo)</td>
-                            </tr>
-                        </tfoot> -->
                     </table>
                     <table class="table">
                         <tfoot>
