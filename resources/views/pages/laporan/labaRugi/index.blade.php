@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'DataTables')
+@section('title', 'Koperasi KSU')
 
 @push('style')
 <!-- CSS Libraries -->

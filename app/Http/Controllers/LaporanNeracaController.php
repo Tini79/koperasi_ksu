@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Akun;
 use Carbon\Carbon;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 use Illuminate\Http\Request;
 use PDF;
 
@@ -78,7 +80,7 @@ class LaporanNeracaController extends Controller
             return $akun;
         });
 
-        $pdf = PDF::setOption('enable-javascript', true)->setOption('javascript-delay', 13500)->loadView('pages.laporan.neraca.pdf', [
+        $pdf = PDF::loadView('pages.laporan.neraca.pdf', [
             'date' => $date,
             'akunAset' => $akunAset,
             'akunKewajiban' => $akunKewajiban,

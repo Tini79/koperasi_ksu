@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'DataTables')
+@section('title', 'Koperasi KSU')
 
 @push('style')
 <!-- CSS Libraries -->
@@ -85,7 +85,7 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <table class="table">
-                                            <tfoot class="bg-secondary">
+                                            <tfoot>
                                                 <th class="text-right col-md-5">Jumlah</th>
                                                 <td id="totalDebit" class="col-md-3"></td>
                                             </tfoot>
@@ -93,7 +93,7 @@
                                     </div>
                                     <div class="col-6">
                                         <table class="table">
-                                            <tfoot class="bg-secondary">
+                                            <tfoot>
                                                 <th class="text-right col-md-5">Jumlah</th>
                                                 <td id="totalKredit" class="col-md-3"></td>
                                             </tfoot>
