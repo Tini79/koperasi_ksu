@@ -30,12 +30,12 @@ CREATE TABLE IF NOT EXISTS `akuns` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=109 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table koperasi_ksu.akuns: ~106 rows (approximately)
+-- Dumping data for table koperasi_ksu.akuns: ~69 rows (approximately)
 /*!40000 ALTER TABLE `akuns` DISABLE KEYS */;
 INSERT INTO `akuns` (`id`, `akun_id`, `nama_akun`, `kategori`, `kode_akun`, `saldo`, `created_at`, `updated_at`) VALUES
-	(2, NULL, 'Aset', 'Debet', '100', 6000000, '2022-11-04 16:03:01', '2022-11-06 03:48:23'),
+	(2, NULL, 'Aset', 'Debet', '100', 0, '2022-11-04 16:03:01', '2022-11-06 03:48:23'),
 	(3, 2, 'Aset Lancar', 'Debet', '101', 0, '2022-11-04 16:03:26', '2022-11-04 16:03:26'),
-	(4, 3, 'Kas', 'Debet', '101-1', 400000, '2022-11-04 16:06:10', '2022-11-05 16:17:13'),
+	(4, 3, 'Kas', 'Debet', '101-1', 0, '2022-11-04 16:06:10', '2022-11-05 16:17:13'),
 	(5, 3, 'Bank', 'Debet', '101-2', 0, '2022-11-04 16:06:44', '2022-11-04 16:06:44'),
 	(6, 3, 'Surat Berharga', 'Debet', '101-3', 0, '2022-11-04 16:07:03', '2022-11-04 16:07:03'),
 	(7, 3, 'Piutang Usaha', 'Debet', '101-4', 0, '2022-11-04 16:08:55', '2022-11-04 16:08:55'),
@@ -80,14 +80,14 @@ INSERT INTO `akuns` (`id`, `akun_id`, `nama_akun`, `kategori`, `kode_akun`, `sal
 	(47, 43, 'Cadangan', 'Kredit', '304', 0, '2022-11-04 16:41:52', '2022-11-04 16:41:52'),
 	(48, 43, 'SHU Tahun Berjalan', 'Kredit', '305', 0, '2022-11-04 16:42:30', '2022-11-04 16:42:30'),
 	(49, NULL, 'Pendapatan', 'Debet', '400', 0, '2022-11-04 16:44:14', '2022-11-04 16:44:14'),
-	(50, 49, 'Pelayanan Bruto Anggota', 'Debet', '401', 3000000, '2022-11-04 16:45:03', '2022-11-04 16:45:03'),
+	(50, 49, 'Pelayanan Bruto Anggota', 'Debet', '401', 0, '2022-11-04 16:45:03', '2022-11-04 16:45:03'),
 	(51, 49, 'Beban Pokok Pelayanan', 'Debet', '402', 0, '2022-11-04 16:45:26', '2022-11-04 16:45:26'),
 	(52, 49, 'Pelayanan Neto Anggota (a)', 'Debet', '403', 0, '2022-11-04 16:45:56', '2022-11-04 16:45:56'),
 	(53, 49, 'Beban Pokok Penjualan', 'Debet', '405', 0, '2022-11-04 16:50:35', '2022-11-04 16:50:35'),
 	(54, 49, 'Laba/Rugi Non-anggota (b)', 'Debet', '406', 0, '2022-11-04 16:51:04', '2022-11-04 16:51:04'),
 	(55, 49, 'SHU Kotor (a+b)', 'Debet', '407', 0, '2022-11-04 16:52:03', '2022-11-04 16:52:03'),
-	(56, NULL, 'Beban Operasional', 'Kredit', '500', 2000000, '2022-11-04 16:53:11', '2022-11-04 16:53:11'),
-	(57, 56, 'Beban Usaha', 'Kredit', '500-1', 2000000, '2022-11-04 16:53:32', '2022-11-05 16:36:34'),
+	(56, NULL, 'Beban Operasional', 'Kredit', '500', 0, '2022-11-04 16:53:11', '2022-11-04 16:53:11'),
+	(57, 56, 'Beban Usaha', 'Kredit', '500-1', 0, '2022-11-04 16:53:32', '2022-11-05 16:36:34'),
 	(58, 56, 'Beban Administrasi Dan Umum', 'Kredit', '500-2', 0, '2022-11-04 16:53:57', '2022-11-04 16:53:57'),
 	(59, 56, 'Beban Perkoperasian', 'Kredit', '500-3', 0, '2022-11-04 16:54:18', '2022-11-04 16:54:18'),
 	(60, 56, 'Shu Operasional ((a+b)-c)', 'Kredit', '501', 0, '2022-11-04 16:54:34', '2022-11-04 16:54:34'),
@@ -184,7 +184,7 @@ CREATE TABLE IF NOT EXISTS `angsuran_pinjamans` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table koperasi_ksu.angsuran_pinjamans: ~1 rows (approximately)
+-- Dumping data for table koperasi_ksu.angsuran_pinjamans: ~0 rows (approximately)
 /*!40000 ALTER TABLE `angsuran_pinjamans` DISABLE KEYS */;
 INSERT INTO `angsuran_pinjamans` (`id`, `pinjaman_id`, `tanggal_pembayaran`, `nominal_setoran`, `sisa_angsuran`, `status`, `created_at`, `updated_at`) VALUES
 	(2, 1, '2022-11-06', 411992420, 3587933980, 0, '2022-11-06 13:13:52', '2022-11-06 13:13:52');
@@ -207,7 +207,7 @@ CREATE TABLE IF NOT EXISTS `detail_memorials` (
 INSERT INTO `detail_memorials` (`id`, `akun_id`, `memorial_id`, `debet`, `kredit`, `created_at`, `updated_at`) VALUES
 	(1, 5, 1, 70000, 0, '2022-11-06 07:46:44', '2022-11-06 07:46:44'),
 	(2, 71, 2, 50000, 0, '2022-11-06 07:50:02', '2022-11-06 07:50:02'),
-	(3, 21, 3, 2000000, 1000000, '2022-11-06 13:16:16', '2022-11-06 13:16:16');
+	(3, 21, 3, 2000000, 0, '2022-11-06 13:16:16', '2022-11-06 13:16:16');
 /*!40000 ALTER TABLE `detail_memorials` ENABLE KEYS */;
 
 -- Dumping structure for table koperasi_ksu.failed_jobs
@@ -520,7 +520,7 @@ CREATE TABLE IF NOT EXISTS `simpanan_anggotas` (
   CONSTRAINT `simpanan_anggotas_rekening_simpanan_id_foreign` FOREIGN KEY (`rekening_simpanan_id`) REFERENCES `rekening_simpanans` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table koperasi_ksu.simpanan_anggotas: ~14 rows (approximately)
+-- Dumping data for table koperasi_ksu.simpanan_anggotas: ~0 rows (approximately)
 /*!40000 ALTER TABLE `simpanan_anggotas` DISABLE KEYS */;
 INSERT INTO `simpanan_anggotas` (`id`, `anggota_id`, `produk_simpanan_id`, `rekening_simpanan_id`, `tgl_transaksi`, `transaksi`, `saldo`, `created_at`, `updated_at`) VALUES
 	(1, 3, 1, 2, '2022-11-06', 'Setor', 10000, NULL, NULL),
@@ -553,7 +553,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table koperasi_ksu.users: ~5 rows (approximately)
+-- Dumping data for table koperasi_ksu.users: ~0 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `pegawai_id`, `anggota_id`, `username`, `password`, `level`, `remember_token`, `created_at`, `updated_at`) VALUES
 	(2, NULL, 3, 'anggota', '$2y$10$G3UQYWR43kFVELR/TP.A4.k36w2hQm6AeqidIF3bWjAVeDnBCLF.a', 'Anggota', NULL, NULL, NULL),
