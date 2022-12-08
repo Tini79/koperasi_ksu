@@ -46,6 +46,7 @@
                                             <th>Debet</th>
                                             <th>Kredit</th>
                                             <th>Keterangan</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -54,10 +55,17 @@
                                         <tr>
                                             <td class="text-center">{{ $key + 1 }}</td>
                                             <td>{{ $memorial->tanggal }}</td>
-                                            <td>{{ $detail_memorial->akun->nama_akun }}</td>
+                                            <td class="col-3">{{ $detail_memorial->akun->nama_akun }}</td>
                                             <td>@currency($detail_memorial->debet)</td>
                                             <td>@currency($detail_memorial->kredit)</td>
                                             <td>{{ $memorial->keterangan }}</td>
+                                            <td>
+                                                <form action="{{ route('pembukuan.datajurnalkas.destroy', ['datajurnalka' => $detail_memorial->id]) }}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="btn btn-outline-danger"><i class="fas fa-trash"></i></button>
+                                                </form>
+                                            </td>
                                         </tr>
                                         @endforeach
                                         @endforeach

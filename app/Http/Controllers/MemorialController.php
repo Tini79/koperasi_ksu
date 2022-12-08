@@ -83,4 +83,15 @@ class MemorialController extends Controller
 
         return $pdf->stream();
     }
+
+    public function destroy($id)
+    {
+        try {
+            DetailMemorial::destroy($id);
+        } catch (Exception $th) {
+            return back()->with('danger', 'Gagal hapus data!');
+        }
+
+        return redirect()->back()->with('success', 'Berhasil hapus data!');
+    }
 }
