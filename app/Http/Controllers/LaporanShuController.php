@@ -35,11 +35,11 @@ class LaporanShuController extends Controller
             return $akun;
         });
 
-        $pdf = PDF::loadView('pages.laporan.shu.pdf', [
+        return view('pages.laporan.shu.pdf', [
             'date' => $date,
             'akunSaldoModalAwal' => $akunSaldoModalAwal,
         ]);
 
-        return $pdf->stream();
+        // return $pdf->stream();
     }
 }

@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/app.css">
-    <script type="text/javascript" src="js/app.js"></script>
+    <link rel="stylesheet" href="{{ asset('library/bootstrap/dist/css/bootstrap.min.css') }}">
+    <!-- <script type="text/javascript" src="js/app.js"></script> -->
 </head>
 
 <body class="bg-white">
@@ -20,7 +21,7 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-6">
                                 <table class="table" id="table" border="1">
                                     <thead>
                                         <tr>
@@ -33,15 +34,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="col-md-3">
-                                <table class="table">
-                                    <tfoot>
-                                        <th class="text-right col-md-5">Jumlah</th>
-                                        <td id="totalDebit" class="col-md-3"></td>
-                                    </tfoot>
-                                </table>
-                            </div>
-                            <div class="col-md-3">
+                            <div class="col-6">
                                 <table class="table" id="table2" border="1">
                                     <thead>
                                         <tr>
@@ -55,13 +48,23 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="col-md-3">
-                            <table class="table">
-                                <tfoot>
-                                    <th class="text-right col-md-5">Jumlah</th>
-                                    <td id="totalKredit" class="col-md-3"></td>
-                                </tfoot>
-                            </table>
+                        <div class="row">
+                            <div class="col-6">
+                                <table class="table">
+                                    <tfoot>
+                                        <th class="text-right col-md-5">Jumlah</th>
+                                        <td id="totalDebit" class="col-md-3"></td>
+                                    </tfoot>
+                                </table>
+                            </div>
+                            <div class="col-6">
+                                <table class="table">
+                                    <tfoot>
+                                        <th class="text-right col-md-5">Jumlah</th>
+                                        <td id="totalKredit" class="col-md-3"></td>
+                                    </tfoot>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -69,26 +72,35 @@
         </section>
     </div>
 </body>
-<script type="text/javascript">
+
+<script>
     try {
         var table = document.getElementById("table"),
             sumValDebit = 0,
             sumValKredit = 0;
+        var table2 = document.getElementById("table2");
+        console.log(table)
         for (var i = 1; i < table.rows.length; i++) {
             var cellValue = table.rows[i].cells[1].innerHTML;
             var replaceVal = cellValue.replace('Rp', '').replaceAll('.', '');
             sumValDebit = parseFloat(sumValDebit) + parseFloat(replaceVal);
         }
 
-        for (var i = 1; i < table.rows.length; i++) {
-            var cellValue = table.rows[i].cells[2].innerHTML;
+        for (var i = 1; i < table2.rows.length; i++) {
+            var cellValue = table2.rows[i].cells[1].innerHTML;
             var replaceVal = cellValue.replace('Rp', '').replaceAll('.', '');
             sumValKredit = parseFloat(sumValKredit) + parseFloat(replaceVal);
         }
 
-        document.getElementById("totalDebit").innerHTML = sumValDebit
-        document.getElementById("totalKredit").innerHTML = sumValKredit
+        const formatter = new Intl.NumberFormat('id-ID', {
+            style: 'currency',
+            currency: 'IDR'
+        })
 
+        document.getElementById("totalDebit").innerHTML = formatter.format(sumValDebit)
+        document.getElementById("totalKredit").innerHTML = formatter.format(sumValKredit)
+
+        window.print()
     } catch (e) {
         window.onload = window.print;
     }

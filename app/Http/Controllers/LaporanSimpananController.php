@@ -27,8 +27,8 @@ class LaporanSimpananController extends Controller
             ->where('tgl_transaksi', '=', $today)
             ->get();
 
-        $pdf = PDF::loadView('pages.laporan.simpanan.pdf', ['laporanSimpanan' => $laporanSimpanan, 'date' => $date]);
+        return view('pages.laporan.simpanan.pdf', ['laporanSimpanan' => $laporanSimpanan, 'date' => $date]);
 
-        return $pdf->stream();
+        // return $pdf->stream();
     }
 }

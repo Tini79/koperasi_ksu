@@ -45,12 +45,12 @@ class LaporanLabaRugiController extends Controller
         });
 
 
-        $pdf = PDF::loadView('pages.laporan.labaRugi.pdf', [
+        return view('pages.laporan.labaRugi.pdf', [
             'date' => $date,
             'akunPendapatan' => $akunPendapatan,
             'akunBiaya' => $akunBiaya
         ]);
 
-        return $pdf->stream();
+        // return $pdf->stream();
     }
 }

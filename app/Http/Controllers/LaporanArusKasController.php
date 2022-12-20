@@ -35,11 +35,11 @@ class LaporanArusKasController extends Controller
             return $akun;
         });
 
-        $pdf = PDF::loadView('pages.laporan.arusKas.pdf', [
+        return view('pages.laporan.arusKas.pdf', [
             'date' => $date,
             'akunArusKas' => $akunArusKas
         ]);
 
-        return $pdf->stream();
+        // return $pdf->stream();
     }
 }

@@ -27,8 +27,8 @@ class LaporanPinjamanController extends Controller
             ->where('tanggal_pembayaran', '=', $today)
             ->get();
 
-        $pdf = PDF::loadView('pages.laporan.pinjaman.pdf', ['laporanPinjaman' => $laporanpinjaman, 'date' => $date]);
+        return view('pages.laporan.pinjaman.pdf', ['laporanPinjaman' => $laporanpinjaman, 'date' => $date]);
 
-        return $pdf->stream();
+        // return $pdf->stream();
     }
 }

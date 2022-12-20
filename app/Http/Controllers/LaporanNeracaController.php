@@ -80,7 +80,7 @@ class LaporanNeracaController extends Controller
             return $akun;
         });
 
-        $pdf = PDF::loadView('pages.laporan.neraca.pdf', [
+        return view('pages.laporan.neraca.pdf', [
             'date' => $date,
             'akunAset' => $akunAset,
             'akunKewajiban' => $akunKewajiban,
