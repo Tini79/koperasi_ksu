@@ -17,7 +17,7 @@ class MemorialController extends Controller
 {
     public function index()
     {
-        $memorials = Memorial::with('detail_memorials')->get();
+        $memorials = Memorial::with('detail_memorials')->latest()->get();
 
         return view('pages.pembukuan.memorial.index', [
             'memorials' => $memorials

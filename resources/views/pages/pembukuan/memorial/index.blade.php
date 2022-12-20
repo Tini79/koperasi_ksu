@@ -40,7 +40,7 @@
                                 <table class="table-striped table" id="table-1">
                                     <thead>
                                         <tr>
-                                            <th class="text-center col-1">#</th>
+                                            <!-- <th class="text-center col-1">#</th> -->
                                             <th>Tanggal</th>
                                             <th>Akun</th>
                                             <th>Debet</th>
@@ -51,9 +51,9 @@
                                     </thead>
                                     <tbody>
                                         @foreach($memorials as $key => $memorial)
-                                        @foreach($memorial->detail_memorials as $detail_memorial)
+                                        @foreach($memorial->detail_memorials as $number => $detail_memorial)
                                         <tr>
-                                            <td class="text-center">{{ $key + 1 }}</td>
+                                            <!-- <td class="text-center">{{ $key + 1 }}</td> -->
                                             <td>{{ $memorial->tanggal }}</td>
                                             <td class="col-3">{{ $detail_memorial->akun->nama_akun }}</td>
                                             <td>@currency($detail_memorial->debet)</td>
